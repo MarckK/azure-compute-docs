@@ -50,12 +50,34 @@ BYOS enables you to use your existing license subscriptions, in this case RHEL a
 You can use Azure Hybrid Benefit to switch between the two license options at any time.
 
 ## Which Linux Virtual Machines are Eligible for Azure Hybrid Benefit 
-Azure Hybrid Benefit is available for all BYOS RHEL and SLES Marketplace images. BYOS RHEL and SLES Marketplace images can be identified XXXXXX (by having no cost attached on them?)... shown by example image. XXXXX
-Azure Hybrid Benefit is also available for following PAYG RHEL and SLES Marketplace images:
-Currently sourcing these lists:
+### PAYG 
+The following PAYG RHEL and SLES Marketplace offers are AHB eligible:
+
+##### RHEL PAYG offers that are ABH eligible:
+**Note: all of the RHEL PAYG eligible offers must have Red Hat, Inc. as the publisher.**
+
+The names of the eligible offers are listed below, with links to them in the Azure Marketplace.
+Within these offers the associated images will be described as 'Pay-As-You-Go'.
+
+* [Red Hat Enterprise Linux ( RHEL )](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-20190605?tab=Overview)
+* [Red Hat Enterprise Linux ( RHEL ) for SAP Apps](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-sap-apps?tab=Overview)
+* [RHEL for SAP with HA and Update Services](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-sap-ha?tab=Overview)
+* [Red Hat Enterprise Linux ( RHEL ) with High Availability ( HA ) Add-On](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-ha?tab=Overview)
+* [Red Hat Enterprise Linux ( RHEL ) ARM64](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-arm64?tab=Overview)
+* [Red Hat Enterprise Linux Confidential VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-cvm?tab=Overview)
+* [Red Hat Enterprise Linux ( RHEL ) RAW](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-raw?tab=Overview)
+
+##### SLES PAYG offers that are ABH eligible:
+**Note: all of the SLES PAYG eligible offers must have SUSE as the publisher.**
 XXXXX
 XXXXX
-XXXXX
+
+### BYOS
+Azure Hybrid Benefit is also available for BYOS RHEL and SLES Marketplace images. 
+There is currently one RHEL BYOS offer available, which is a private offer. 
+To gain access to this offer, it is necessary to join Red Hat's Cloud Access program. 
+SLES BYOS Marketplace offers can be identified by their name, which denotes them as BYOS, for example, 'SUSE Enterprise Linux 12 SP5 - BYOS'.
+
 
 Additionally, please note that Azure dedicated host instances and SQL hybrid benefits aren't eligible for Azure Hybrid Benefit if you already use Azure Hybrid Benefit with Linux virtual machines.
 
