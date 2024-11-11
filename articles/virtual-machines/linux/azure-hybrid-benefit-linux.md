@@ -53,11 +53,12 @@ You can use Azure Hybrid Benefit to switch between the two license options at an
 ### PAYG 
 The following PAYG RHEL and SLES Marketplace offers are AHB eligible:
 
+##### [RHEL PAYG](#tab/ahbRhelPayg)
 ##### RHEL PAYG offers that are ABH eligible:
 **Note: all of the RHEL PAYG eligible offers must have Red Hat, Inc. as the publisher.**
 
 The names of the eligible offers are listed below, with links to them in the Azure Marketplace.
-Within these offers the associated images will be described as 'Pay-As-You-Go'.
+Within these offers, the associated images will be described as 'Pay-As-You-Go'.
 
 * [Red Hat Enterprise Linux ( RHEL )](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-20190605?tab=Overview)
 * [Red Hat Enterprise Linux ( RHEL ) for SAP Apps](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-sap-apps?tab=Overview)
@@ -67,10 +68,14 @@ Within these offers the associated images will be described as 'Pay-As-You-Go'.
 * [Red Hat Enterprise Linux Confidential VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-cvm?tab=Overview)
 * [Red Hat Enterprise Linux ( RHEL ) RAW](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-raw?tab=Overview)
 
+##### [SLES PAYG](#tab/ahbSlesPayg)
 ##### SLES PAYG offers that are ABH eligible:
 **Note: all of the SLES PAYG eligible offers must have SUSE as the publisher.**
 XXXXX
 XXXXX
+
+
+---
 
 ### BYOS
 Azure Hybrid Benefit is also available for BYOS RHEL and SLES Marketplace images. 
