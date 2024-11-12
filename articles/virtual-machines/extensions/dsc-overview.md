@@ -8,7 +8,7 @@ ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.date: 03/28/2023
 ms.author: magoedte

@@ -37,17 +37,28 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) | Max NVMe Disks (Qty.) | NVMe Disk Size (TiB) | NVMe Disk IOPS | NVMe Disk Speed (MBps) | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND96isr_MI300X_v5 | 1 | 1000 | |  |  |  | 8 | 28 | | |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Max NVMe Disks (Qty.) | NVMe Disk Size (TiB) |
+| --- | --- | --- | --- | --- |
+| Standard_ND96isr_MI300X_v5 | 1 | 1000 | 8 | 28 |
+
+#### Storage resources
+- [Introduction to Azure managed disks](../../managed-disks-overview.md)
+- [Azure managed disk types](../../disks-types.md)
+- [Share an Azure managed disk](../../disks-shared.md)
+
+#### Table definitions
+- <sup>1</sup>Temp disk speed often differs between RR (Random Read) and RW (Random Write) operations. RR operations are typically faster than RW operations. The RW speed is usually slower than the RR speed on series where only the RR speed value is listed.
+- Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
+- Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
+- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../disks-performance.md).
 
 ### [Remote storage](#tab/sizestorageremote)
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND96isr_MI300X_v5 | 16 | 80000 | 1200 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_ND96isr_MI300X_v5 | 16 | 80000 | 1200 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)

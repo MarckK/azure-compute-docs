@@ -287,7 +287,7 @@ Some properties may be changed, with exceptions depending on the current value. 
 - subnet
 - imageReferenceSku
 - imageReferenceOffer
-- Availability Zones (Preview)
+- zones
 
 #### Example 1
 To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Unbuntu Server 20.04 to 22.04. 

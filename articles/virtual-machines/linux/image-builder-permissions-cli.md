@@ -5,7 +5,7 @@ author: kof-f
 ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 04/02/2021
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurecli, linux-related-content

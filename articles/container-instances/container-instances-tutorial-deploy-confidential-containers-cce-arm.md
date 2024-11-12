@@ -63,7 +63,7 @@ Use your preferred text editor to save this ARM template on your local machine a
       },
       "image": {
         "type": "string",
-        "defaultValue": "mcr.microsoft.com/public/acc/samples/aci/helloworld:2.7",
+        "defaultValue": "mcr.microsoft.com/acc/samples/aci/helloworld:2.8",
         "metadata": {
           "description": "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
         }

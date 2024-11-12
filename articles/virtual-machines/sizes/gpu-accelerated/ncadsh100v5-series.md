@@ -38,10 +38,10 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC40ads_H100_v5 | 1 | 3576 |  |  |  |  |
-| Standard_NC80adis_H100_v5 | 1 | 7152 |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NC40ads_H100_v5 | 1 | 3576 |
+| Standard_NC80adis_H100_v5 | 1 | 7152 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -58,10 +58,10 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC40ads_H100_v5 | 8 | 100000 | 3000 |  |  |  |  |  |  |
-| Standard_NC80adis_H100_v5 | 16 | 240000 | 7000 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_NC40ads_H100_v5 | 8 | 100000 | 3000 |
+| Standard_NC80adis_H100_v5 | 16 | 240000 | 7000 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -83,8 +83,8 @@ Network interface info for each size
 
 | Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
 | --- | --- | --- |
-| Standard_NC40ads_H100_v5 | 2 | 40,000 |
-| Standard_NC80adis_H100_v5 | 4 | 80,000 |
+| Standard_NC40ads_H100_v5 | 2 | 40000 |
+| Standard_NC80adis_H100_v5 | 4 | 80000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)

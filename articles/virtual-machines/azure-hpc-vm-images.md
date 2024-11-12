@@ -4,7 +4,7 @@ description: HPC VM images to be used on InfiniBand enabled H-series and GPU ena
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/25/2024
 ms.reviewer: padmalathas
 ms.author: litan2

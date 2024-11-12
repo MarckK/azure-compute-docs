@@ -29,7 +29,7 @@ Azure Container Instances enables exposing your container groups directly to the
 Azure Container Instances also supports executing a command in a running container by providing an interactive shell to help with application development and troubleshooting. Access takes places over HTTPS, using TLS to secure client connections.
 
 > [!IMPORTANT]
-> Starting January 13, 2020, Azure Container Instances will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
+> As of January 13, 2020, Azure Container Instances requires all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 has been retired.
 
 ## Compliant deployments
 

@@ -8,7 +8,11 @@ ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.collection: linux
 ms.topic: conceptual
+<<<<<<< HEAD
 ms.date: 10/03/2024
+=======
+ms.date: 10/28/2024
+>>>>>>> 2606ef09177d2b45898ca34b3f6769c4cd787f12
 ms.author: clausw
 ms.reviewer: 
 ms.custom: kr2b-contr-experiment, linux-related-content, devx-track-azurecli
@@ -85,6 +89,9 @@ SLES BYOS Marketplace offers can be identified by their name, which denotes them
 
 
 Additionally, please note that Azure dedicated host instances and SQL hybrid benefits aren't eligible for Azure Hybrid Benefit if you already use Azure Hybrid Benefit with Linux virtual machines.
+
+> [!NOTE]
+> For Red Hat VMs, the Azure account needs to be part of the Red Hat Cloud Access. Register with Red Hat Cloud Access before you try to enable Azure Hybrid Benefit on your VMs.
 
 ## Enabling Azure Hybrid Benefit
 

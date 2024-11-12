@@ -9,7 +9,7 @@ ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-windows
 ms.date: 03/13/2022
 ms.author: magoedte

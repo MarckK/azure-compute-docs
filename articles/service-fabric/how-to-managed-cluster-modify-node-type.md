@@ -393,7 +393,7 @@ Service Fabric managed clusters by default configure one managed disk. By config
 Configure more managed disks by declaring `additionalDataDisks` property and required parameters in your Resource Manager template as follows:
 
 **Feature Requirements**
-* Lun must be unique per disk and can't use reserved lun 0
+* Lun must be unique per disk and can't use reserved lun 0 or 1
 * Disk letter can't use reserved letters C or D and can't be modified once created. S is used by default if not specified.
 * Must specify a [supported disk type](how-to-managed-cluster-managed-disk.md)
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
@@ -406,7 +406,7 @@ Configure more managed disks by declaring `additionalDataDisks` property and req
   "location": "[resourcegroup().location]",
   "properties": {
     "additionalDataDisks": {
-      "lun": "1",
+      "lun": "2",
       "diskSizeGB": "50",
       "diskType": "Standard_LRS",
       "diskLetter": "S" 

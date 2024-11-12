@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/01/2024
+ms.date: 09/17/2024
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
@@ -18,7 +18,17 @@ ms.reviewer: mattmcinnes
 [!INCLUDE [nd-h100-v5-series-specs](./includes/ndh100v5-series-specs.md)]
 
 ## Feature support
-[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Not Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Not Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Not Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Not Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>[Infiniband](../../setup-infiniband.md): Supported <br>
+
+> [!IMPORTANT]
+> To get started with ND H100 v5 VMs, refer to HPC Workload Configuration and Optimization for steps including driver and network configuration.
+> Due to increased GPU memory I/O footprint, ND H100 v5 requires the use of Generation 2 VMs and marketplace images.
+>
+> Azure supports Ubuntu 20.04/22.04, RHEL 7.9/8.7/9.3, AlmaLinux 8.8/9.2, and SLES 15 for ND H100 v5 VMs. Currently, Ubuntu-HPC 20.4/22.04 and AlmaLinux-HPC 8.6/8.7 VM images are supported.
+> 
+> There are offerings of optimized and pre-configured Linux VM images for HPC/AI workloads with a variety of HPC tools and libraries installed, and thus they are highly recommended.
+> 
+> To download an image, go to [Azure Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home).
 
 ## Sizes in series
 
@@ -37,9 +47,9 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) | Local-Special-Disk-Count | Local-Special-Disk-Size-GB | Local-Special-Disk-RR-IOPS | Local-Special-Disk-RR-MBps |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND96isr_H100_v5 | 1 | 28000 |  |  |  |  |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_ND96isr_H100_v5 | 1 | 28000 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -56,9 +66,9 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND96isr_H100_v5 | 32 | 40800 | 612 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_ND96isr_H100_v5 | 32 | 40800 | 612 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)

@@ -55,10 +55,13 @@ The `vmSizes` property is where you specify the specific VM sizes that you're us
 Instance Mix introduces the ability to set allocation strategies for your scale set. The `allocationStrategy` property is where you specify which allocation strategy you'd like to use for your Instance Flexible scale set deployments. There are two options for allocation strategies, `lowestPrice` and `capacityOptimized`. Allocation strategies apply to both Spot and Standard VMs.
 
 #### lowestPrice (default)
-This allocation strategy is focused on workloads where cost and cost-optimization are most important. When evaluating what VM split to use, Azure looks at the lowest priced VMs of the VM sizes specified. Azure also considers capacity as part of this allocation strategy. When using `lowestPrice` allocation strategy, the scale set deploys as many of the lowest priced VMs as it can, depending on available capacity, before moving on to the next lowest priced VM size specified.
+This allocation strategy is focused on workloads where cost and cost-optimization are most important. When evaluating what VM split to use, Azure looks at the lowest priced VMs of the VM sizes specified. Azure also considers capacity as part of this allocation strategy. The scale set deploys as many of the lowest priced VMs as it can, depending on available capacity, before moving on to the next lowest priced VM size specified. `lowestPrice` is the default allocation strategy.
 
 #### capacityOptimized
 This allocation strategy is focused on workloads where attaining capacity is the primary concern. When evaluating what VM size split to deploy in the scale set, Azure looks only at the underlying capacity available. It doesn't take price into account when determining what VMs to deploy. Using `capacityOptimized` can result in the scale set deploying the most expensive, but most readily available VMs. 
+
+#### Prioritized
+This allocation strategy allows you to specify a priority ranking to the VM sizes specified. Note: ranking is optional, but if provided, it must be within the range of the `vmSizes` list size. Ranks can be duplicated across sizes, meaning the sizes have the same priority. Ranks don't need to be in sequential order.
 
 ## Cost
 Following the scale set cost model, usage of Instance Mix is free. You continue to only pay for the underlying resources, like the VM, disk, and networking.
@@ -66,7 +69,7 @@ Following the scale set cost model, usage of Instance Mix is free. You continue 
 ## Limitations
 - Instance Mix is currently available in the following regions: West US, West US2, East US, and East US2. 
 - Instance Mix is only available for scale sets using Flexible Orchestration Mode.
-- Instance Mix is currently only available through ARM template.
+- Instance Mix is currently only available through ARM template and the Azure portal.
 - You must have quota for the VM sizes you're requesting with Instance Mix.
 - You can specify **up to** five VM sizes with Instance Mix at this time.
 - Existing scale sets can't be updated to use Instance Mix. 
@@ -86,7 +89,7 @@ In the request body, ensure `sku.name` is set to Mix:
 ```json
   "sku": {
     "name": "Mix",
-    "capacity": {TotalNumberVms}
+    "capacity": {TotalNumberVMs}
   },
 ```
 Ensure you reference your existing subnet:
@@ -113,6 +116,24 @@ Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This s
     },
 ```
 
+When using the `prioritized` allocation strategy, you can specify the priority ranking of the `vmSizes` specified:
+```json
+    "skuProfile": {
+      "vmSizes": [
+        {
+          "name": "Standard_D8s_v5", "rank": 1
+        },
+        {
+          "name": "Standard_E16s_v5", "rank": 2
+        },
+        {
+          "name": "Standard_D2s_v5", "rank": 1
+        }
+      ],
+      "allocationStrategy": "Prioritized"
+    },
+```
+
 ### [Azure portal](#tab/portal-1)
 1. Go to **Virtual machine scale sets**.
 2. Select the **Create** button to go to the **Create a virtual machine scale set** view.
@@ -123,7 +144,6 @@ Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This s
 7. Use the size picker to select up to five VM sizes. Once you've selected your VM sizes, click the **Select** button at the bottom of the page to return to the scale set Basics tab.
 8. In the **Allocation strategy (preview)** field, select your allocation strategy.
 9. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your Instance Flexible scale set deployment.
-
 ---
 
 ## Troubleshooting

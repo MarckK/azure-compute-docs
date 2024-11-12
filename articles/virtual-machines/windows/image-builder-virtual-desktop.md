@@ -5,7 +5,7 @@ author: kof-f
 ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 11/10/2023
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.collection: windows
 ms.subservice: image-builder

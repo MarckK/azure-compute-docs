@@ -3,7 +3,7 @@ title: Overview of Maintenance control for OS image upgrades on Azure Virtual Ma
 description: Learn how to control when automatic OS image upgrades are rolled out to your Azure Virtual Machine Scale Sets using Maintenance control.
 author: ju-shim
 ms.service: azure-virtual-machine-scale-sets
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 11/22/2022
 ms.author: jushiman
 #pmcontact: PPHILLIPS
@@ -30,7 +30,7 @@ The entire workflow comes down to these steps:
 - VMs must be in a scale set.
 - User must have **Resource Contributor** access.
 - Maintenance duration must be 5 hours or longer in the maintenance configuration.
-- Maintenance recurrence must be set to 'Day' in the maintenance configuration
+- Maintenance recurrence must be set to 'Day' or 'Week' in the maintenance configuration.
 
 
 ## Management options

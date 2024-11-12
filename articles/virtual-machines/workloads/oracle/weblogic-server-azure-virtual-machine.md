@@ -4,7 +4,7 @@ description: Shows how to quickly stand up WebLogic Server on Azure Virtual Mach
 author: KarlErickson
 ms.author: haiche
 ms.topic: quickstart
-ms.date: 07/01/2024
+ms.date: 10/08/2024
 ms.service: oracle-on-azure
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, devx-track-extended-java
 ---
@@ -19,14 +19,14 @@ This article shows you how to quickly deploy WebLogic Server (WLS) on an Azure V
 
 This article uses the [Azure Marketplace Offer for WebLogic Server](https://aka.ms/wls-vm-admin) to accelerate your journey to Azure. The offer automatically provisions several Azure resources, including the following resources:
 
-- Azure Virtual Machine pre-installed with your choice of OS version, Java JDK version, and WebLogic Server Version.
+- Azure Virtual Machine preinstalled with your choice of OS version, Java JDK version, and WebLogic Server Version.
 - TLS/SSL configuration, including the easy generation of a self-signed certificate.
-- Virtual network (VNET), including the ability to provision into an existing VNET.
-- Database connection to a pre-existing database.
+- Virtual network (VNet), including the ability to provision into an existing VNet.
+- Database connection to a preexisting database.
 
 If you prefer a less automated step-by-step approach, see [Manually install WebLogic Server on Azure Virtual Machines (VMs)](/azure/developer/java/migration/migrate-weblogic-to-azure-vm-manually).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+To provide feedback or work closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will be in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
@@ -97,11 +97,11 @@ Use the following steps to run a sample application on the WebLogic Server:
 
 1. Download a sample application as a *.war* or *.ear* file. The sample app should be self contained and not have any database, messaging, or other external connection requirements. The sample app from the WebLogic Kubernetes Operator documentation is a good choice. You can download it from [Oracle](https://aka.ms/wls-aks-testwebapp). Save the file to your local filesystem.
 
-1. Paste the value of **adminConsoleURL** in an internet-connected web browser. You should see the familiar WebLogic Server admin console login screen as shown in the following screenshot:
+1. Paste the value of **adminConsoleURL** in an internet-connected web browser. You should see the familiar WebLogic Server admin console sign in screen as shown in the following screenshot:
 
-   :::image type="content" source="media/weblogic-server-azure-virtual-machine/wls-admin-login.png" alt-text="Screenshot of the WebLogic Server admin login screen.":::
+   :::image type="content" source="media/weblogic-server-azure-virtual-machine/wls-admin-login.png" alt-text="Screenshot of the WebLogic Server admin sign in screen.":::
 
-1. Log in with user name *weblogic* and your password (this article uses *wlsVmCluster2022*). You can see the WebLogic Server Administration Console overview page.
+1. Sign in with user name *weblogic* and your password (this article uses *wlsVmCluster2022*). You can see the WebLogic Server Administration Console overview page.
 
 1. Under **Change Center** on the top left corner, select **Lock & Edit**, as shown in the following screenshot:
 

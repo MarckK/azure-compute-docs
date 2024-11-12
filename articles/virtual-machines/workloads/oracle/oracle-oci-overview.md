@@ -4,8 +4,8 @@ description: Learn about solutions that integrate Oracle apps running on Microso
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
-ms.date: 04/11/2023
+ms.topic: concept-article
+ms.date: 10/04/2024
 ms.author: jacobjaygbay
  
 ---
@@ -13,7 +13,7 @@ ms.author: jacobjaygbay
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-Microsoft and Oracle have partnered to provide low latency, high throughput cross-cloud connectivity, allowing you to take advantage of the best of both clouds.
+Microsoft and Oracle partnered to provide low latency, high throughput cross-cloud connectivity, allowing you to take advantage of the best of both clouds.
 
 Using this cross-cloud connectivity, you can partition a multi-tier application to run your database tier on Oracle Cloud Infrastructure (OCI), and the application and other tiers on Microsoft Azure. The experience is similar to running the entire solution stack in a single cloud.
 
@@ -58,7 +58,7 @@ Cross-cloud connectivity is limited to the following regions:
 
 Enterprise customers often choose to diversify and deploy workloads over multiple clouds for various business and operational reasons. To diversify, you can interconnect cloud networks using the internet, IPSec VPN, or using the cloud provider's direct connectivity solution with your on-premises network. Interconnecting cloud networks can require significant investments in time, money, design, procurement, installation, testing, and operations.
 
-To address these challenges, Oracle and Microsoft have enabled an integrated multicloud experience. Establish *cross-cloud networking* by connecting an [ExpressRoute](/azure/expressroute/expressroute-introduction) circuit in Microsoft Azure with a [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuit in OCI. This connectivity is possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider.
+To address these challenges, Oracle and Microsoft enabled an integrated multicloud experience. Establish *cross-cloud networking* by connecting an [ExpressRoute](/azure/expressroute/expressroute-introduction) circuit in Microsoft Azure with a [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuit in OCI. This connectivity is possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider.
 
 Using ExpressRoute and FastConnect, you can peer a virtual network in Azure with a virtual cloud network in OCI, if the private IP address space doesn't overlap. Peering the two networks allows a resource in the virtual network to communicate to a resource in the OCI virtual cloud network as if they're both in the same network.
 
@@ -72,7 +72,7 @@ The [WebLogic Server Azure Applications](oracle-weblogic.md) each create a netwo
 
 ## Identity
 
-Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Microsoft Entra ID](/azure/active-directory/) (Microsoft Entra ID). Microsoft Entra ID is Microsoft's cloud-based identity and access management service. Your users can sign in and access various resources with help from Microsoft Entra ID. Microsoft Entra ID also allows you to manage your users and their permissions.
+Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work was done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Microsoft Entra ID](/azure/active-directory/) (Microsoft Entra ID). Microsoft Entra ID is Microsoft's cloud-based identity and access management service. Your users can sign in and access various resources with help from Microsoft Entra ID. Microsoft Entra ID also allows you to manage your users and their permissions.
 
 Currently, this integration allows you to manage in one central location. Microsoft Entra ID synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 

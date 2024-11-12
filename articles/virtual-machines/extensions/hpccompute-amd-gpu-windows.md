@@ -4,7 +4,7 @@ description: Microsoft Azure extension for installing AMD GPU drivers on NVv4-se
 services: virtual-machines-windows
 author: vikancha-MSFT
 manager: jkabat
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.collection: windows

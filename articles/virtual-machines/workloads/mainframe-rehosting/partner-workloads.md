@@ -9,7 +9,7 @@ manager: edprice
 editor: edprice
 ms.author: johnray
 ms.date: 05/09/2020
-ms.topic: article
+ms.topic: concept-article
 ---
 
 # Mainframe workloads supported on Azure

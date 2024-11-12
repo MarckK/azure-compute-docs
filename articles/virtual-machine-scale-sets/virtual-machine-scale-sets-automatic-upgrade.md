@@ -144,6 +144,7 @@ The following platform SKUs are currently supported (and more are added periodic
 - Use Compute API version 2018-10-01 or higher.
 - Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
 - For scale sets using Windows virtual machines, starting with Compute API version 2019-03-01, the *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled on your scale set, which can be done by setting the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* to *true*, an extra patching process through Windows Update is not required.
+- The [patch orchestration mode](../virtual-machines/automatic-vm-guest-patching.md#patch-orchestration-modes) must _not_ be set to `AutomaticByPlatform` in the scale set model definition. With automatic OS image upgrades enabled on your scale set, a platform orchestration patching process is not required. 
 
 > [!NOTE]
 > After an OS disk is replaced through reimage or upgrade, the attached data disks may have their drive letters reassigned. To retain the same drive letters for attached disks, it is suggested to use a custom boot script.

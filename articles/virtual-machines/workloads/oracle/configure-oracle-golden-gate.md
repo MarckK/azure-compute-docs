@@ -5,12 +5,12 @@ author: jjaygbay1
 ms.service:ms.service: oracle-on-azure
 ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
-ms.topic: article
-ms.date: 08/02/2018
+ms.topic: how-to
+ms.date: 10/01/2024
 ms.author: jacobjaygbay
 ---
 
-# Implement Oracle Golden Gate on an Azure Linux virtual machine
+# Implement Oracle Golden Gate on an Azure Linux virtual machine (VM)
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -18,7 +18,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are set up in an availability set in a single region. The same tutorial can be used to set up OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs set up in two different regions.
 
-Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](/cli/azure/install-azure-cli).
+Before you start, make sure that the Azure CLI is installed. For more information, see [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Introduction
 
@@ -50,7 +50,7 @@ The following table is a summary of the environment configuration:
 
 ### Sign in to Azure
 
-1. Open your preferred shell on Windows, Linux or [Azure Shell](https://shell.azure.com).
+1. Open your preferred shell on Windows, Linux, or [Azure Shell](https://shell.azure.com).
 
 2. Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
 
@@ -91,11 +91,11 @@ Location of key files depends on your source system.
 Windows: %USERPROFILE%\.ssh
 Linux: ~/.ssh
 
-If they don't exist you can create a new keyfile pair.
+If they don't exist, you can create a new keyfile pair.
 
 ssh-keygen -m PEM -t rsa -b 4096
 
-The .ssh directory and key files are created. For more information, refer to [Create and manage SSH keys for authentication to a Linux VM in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed)
+The .ssh directory and key files are created. For more information, see [Create and manage SSH keys for authentication to a Linux VM in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed)
 
 ### Create a resource group
 
@@ -122,7 +122,7 @@ $ az network vnet create \
 
 #### Create a Network Security Group (NSG)
 
-1. Create network security group (NSG) to lock down your virtual network.
+1. Create a network security group (NSG) to lock down your virtual network.
 
     ```azurecli
     $ az network nsg create \
@@ -140,7 +140,7 @@ $ az network vnet create \
         --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
     ```
 
-3. Create NSG rule to deny all inbound connections
+3. Create NSG rule to deny all inbound connections.
 
     ```azurecli
     $ az network nsg rule create \
@@ -160,7 +160,7 @@ $ az network vnet create \
 
 #### Create Bastion Network
 
-1. Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**
+1. Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**.
 
     ```azurecli
     $ az network vnet subnet create  \
@@ -170,7 +170,7 @@ $ az network vnet create \
         --address-prefixes 10.0.1.0/24
     ```
 
-2. Create public IP for Bastion
+2. Create public IP for Bastion.
 
     ```azurecli
     $ az network public-ip create \
@@ -194,7 +194,7 @@ $ az network vnet create \
 
 ### Create X Server VM  (ggXServer)
 
-Replace your password and run following command to create a Windows workstation VM where we deploy X Server.
+Replace your password and run the following command to create a Windows workstation VM where we deploy X Server.
 
 ```azurecli
 $ az vm create \
@@ -217,8 +217,8 @@ $ az vm create \
 
 Connect to **ggXServer** using Bastion.
 
-1. Navigate to **ggXServer** from Azure portal.
-2. Go to **Overview** in the left blade
+1. Navigate to **ggXServer** from Azure portal
+2. Locate **Overview** in the left navigation
 3. Select **Connect** > **Bastion** on the menu at the top
 4. Select Bastion tab
 5. Click **Use Bastion**
@@ -253,9 +253,9 @@ If you restart your **ggXServer** VM, follow steps 2-6 above to restart X Server
 
 ### Create Oracle database virtual machines
 
-For this lab, we create virtual machines `ggVM1` and `ggVM2` from Oracle Database 19c image. If they don't already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used.
+For this lab, we create virtual machines `ggVM1` and `ggVM2` from Oracle Database 19c image. If they don't already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys are used.
 
-When creating a new virtual machine `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. The following example uses minimum required size for this lab `Standard_DS1_v2`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you may choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
+When you create a new virtual machine, the `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. The following example uses minimum required size for this lab `Standard_DS1_v2`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you can choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
 
 #### Create ggVM1 (primary)
 
@@ -298,8 +298,8 @@ Connect to **ggVM1** using Bastion.
 1. Navigate to **ggVM1** from Azure portal.
 2. Go to **Overview** in the left pane.
 3. Select **Connect** > **Bastion** on the menu at the top
-4. Select Bastion tab
-5. Click **Use Bastion**
+4. Select the Bastion tab
+5. Select **Use Bastion**
 
 ### Create the database on ggVM1 (primary)
 
@@ -311,7 +311,7 @@ The Oracle software is already installed on the Marketplace image, so the next s
 $ sudo su - oracle
 ```
 
-2. Create the database using following command. This command may take 30-40 minutes to complete.
+2. Create the database using following command. This command can take 30-40 minutes to complete.
 
 ```bash
 $ dbca -silent \
@@ -393,8 +393,8 @@ Connect to **ggVM2** using Bastion.
 1. Navigate to **ggVM2** from Azure portal.
 2. Go to **Overview** in the left pane.
 3. Select **Connect** > **Bastion** on the menu at the top
-4. Select Bastion tab
-5. Click **Use Bastion**
+4. Select the Bastion tab
+5. Select **Use Bastion**
 
 ### Open firewall ports for ggVM1
 
@@ -501,13 +501,13 @@ SQL> EXIT;
 
 ### Download Golden Gate software
 
-1. Download the **213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip** file from the [Oracle Golden Gate download page](https://www.oracle.com/middleware/technologies/goldengate-downloads.html). Under the download title **Oracle GoldenGate 21.3.0.0.0 for Oracle on Linux x86-64**.
+1. Download the **213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip** file from the [Oracle Golden Gate download page](https://www.oracle.com/middleware/technologies/goldengate-downloads.html), under the download title **Oracle GoldenGate 21.3.0.0.0 for Oracle on Linux x86-64**.
 
 2. After you download the .zip file to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your virtual machines (ggVM1 and ggVM2). Make sure that `scp` command points to correct path of .zip file.
 
 3. Copy to ggVM1
 
-   1. Login and ensure you're using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
+   1. Sign in and ensure you're using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
 
    2. Open the tunnel to your target VM using the following PowerShell command
 
@@ -516,7 +516,7 @@ SQL> EXIT;
        az network bastion tunnel --name ggBastion --resource-group GoldenGateOnAzureLab --target-resource-id $ggVM1id --resource-port 22 --port 57500
        ```
 
-   3. Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. The correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
+   3. To connect to your target VM through the tunnel, leave the first command prompt running and open a second command prompt . In this second command prompt window, you can upload files from your local machine to your target VM using the following command. The correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
 
        ```PowerShell
         scp -P 57500 "213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip"  azureuser@127.0.0.1:.
@@ -544,8 +544,8 @@ SQL> EXIT;
     1. Navigate to **ggVM1** from Azure portal.
     2. Go to **Overview** in the left panel
     3. Select **Connect** > **Bastion** on the menu at the top
-    4. Select Bastion tab
-    5. Click **Use Bastion**
+    4. Select the Bastion tab
+    5. Select **Use Bastion**
 
 2. Move the .zip file to the **/opt** folder, then change the owner
 
@@ -554,7 +554,7 @@ SQL> EXIT;
    $ mv /home/azureuser/*.zip /opt
    ```
 
-3. Unzip the files (install unzip utility if it's not already installed)
+3. Unzip the files (install unzip utility if not already installed)
 
    ```bash
    $ yum install unzip
@@ -605,8 +605,8 @@ SQL> EXIT;
     1. Navigate to **ggVM2** from Azure portal.
     2. Go to **Overview** in the left pane
     3. Select **Connect** > **Bastion** on the menu at the top
-    4. Select Bastion tab
-    5. Click **Use Bastion**
+    4. Select the Bastion tab
+    5. Select **Use Bastion**
 
 12. Repeat steps 2-10 above on **ggVM2**
 
@@ -919,7 +919,7 @@ SQL> EXIT;
 
 #### 1. Set up the replication on ggVM2 (replicate)
 
-Logon to `ggsci`.
+Sign in to `ggsci`.
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -972,7 +972,7 @@ Change the SCN number with the number you obtained before.
   START REPLICAT REPORA, AFTERCSN 2172191
   ```
 
-The replication has begun, and you can test it by inserting new records to TEST tables.
+The replication started, you can test it by inserting new records to TEST tables.
 
 ### View job status and troubleshooting
 

@@ -3,7 +3,7 @@ title: Set up InfiniBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
 description: Learn how to set up InfiniBand on Azure HPC VMs.
 ms.service: azure-virtual-machines
 ms.subservice: hpc
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/05/2024
 ms.reviewer: cynthn
 ms.author: padmalathas

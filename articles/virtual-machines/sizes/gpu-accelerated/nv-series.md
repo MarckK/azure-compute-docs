@@ -39,11 +39,11 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) | Local-Special-Disk-Count | Local-Special-Disk-Size-GB | Local-Special-Disk-RR-IOPS | Local-Special-Disk-RR-MBps |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 | 1 | 340 |  |  |  |  |  |  |  |  |
-| Standard_NV12 | 1 | 680 |  |  |  |  |  |  |  |  |
-| Standard_NV24 | 1 | 1440 |  |  |  |  |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NV6 | 1 | 340 |
+| Standard_NV12 | 1 | 680 |
+| Standard_NV24 | 1 | 1440 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -60,11 +60,11 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 | 24 |  |  |  |  |  |  |  |  |
-| Standard_NV12 | 48 |  |  |  |  |  |  |  |  |
-| Standard_NV24 | 64 |  |  |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) |
+| --- | --- |
+| Standard_NV6 | 24 |
+| Standard_NV12 | 48 |
+| Standard_NV24 | 64 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -84,11 +84,11 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
-| --- | --- | --- |
-| Standard_NV6 | 1 |  |
-| Standard_NV12 | 2 |  |
-| Standard_NV24 | 4 |  |
+| Size Name | Max NICs (Qty.) |
+| --- | --- |
+| Standard_NV6 | 1 |
+| Standard_NV12 | 2 |
+| Standard_NV24 | 4 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)

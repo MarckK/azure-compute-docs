@@ -4,15 +4,15 @@ description: Learn about architectures for Oracle database on Azure Virtual Mach
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
-ms.date: 6/13/2023
+ms.topic: concept-article
+ms.date: 10/07/2024
 ms.author: jacobjaygbay
 ---
 # Architectures for Oracle database on Azure Virtual Machines
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-This article includes information on deploying a highly available Oracle database on Azure. In addition, this guide dives into disaster recovery considerations. These architectures have been created based on customer deployments. This guide only applies to Oracle Database Enterprise Edition.
+This article includes information on deploying a highly available Oracle database on Azure. In addition, this guide dives into disaster recovery considerations. The architectures described in this article were created based on customer deployments. This guide only applies to Oracle Database Enterprise Edition.
 
 If you're interested in learning more about maximizing the performance of your Oracle database, see [Design and implement an Oracle database in Azure](oracle-design.md).
 
@@ -81,7 +81,7 @@ The following diagram is a recommended architecture for using Oracle Data Guard 
 
 :::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png" alt-text="Diagram that shows a recommended architecture for using Oracle Data Guard on Azure with availability zones." lightbox="./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png":::
 
-In the preceding diagram, the client system accesses a custom application with Oracle backend by using the web. The web frontend is configured in a load balancer. The web frontend makes a call to the appropriate application server to handle the work. The application server queries the primary Oracle database. The Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. Multiple premium or ultra disks (Managed Disks) are used for performance and high availability.
+In the preceding diagram, the client system accesses a custom application with Oracle backend by using the web. The web frontend is configured in a load balancer. The web frontend makes a call to the appropriate application server to handle the work. The application server queries the primary Oracle database. The Oracle database is configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. Multiple premium or ultra disks (Managed Disks) are used for performance and high availability.
 
 The Oracle databases are placed in multiple availability zones for high availability. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. To ensure resiliency, a minimum of three separate zones are set up in all enabled regions. The physical separation of availability zones within a region protects the data from data center failures. Additionally, two FSFO observers are set up across two availability zones to initiate and fail over the database to the secondary when an outage occurs.
 
@@ -106,7 +106,7 @@ The following diagram is a high availability architecture using Oracle Data Guar
 
 :::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fs_az.png" alt-text="Diagram that shows Oracle database using availability zones with Data Guard Far Sync & Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_dg_fs_az.png":::
 
-In the preceding architecture, there's a Far Sync instance deployed in a different availability zone as the database instance to ensure zero data loss and automatic failover in case of availability zone failure. In cases where the application is latency sensitive, consider deploying your database and Far Sync instance or instances in the same availability zone in a [proximity placement group](../../../virtual-machines/linux/proximity-placement-groups.md).
+In the preceding architecture, there's a Far Sync instance deployed in a different availability zone as the database instance to ensure zero data loss and automatic failover if there's an availability zone failure. In cases where the application is latency sensitive, consider deploying your database and Far Sync instance or instances in the same availability zone in a [proximity placement group](../../../virtual-machines/linux/proximity-placement-groups.md).
 
 The following diagram is an architecture that uses Oracle Data Guard FSFO and Far Sync to achieve high availability and disaster recovery: 
 
@@ -116,7 +116,7 @@ The following diagram is an architecture that uses Oracle Data Guard FSFO and Fa
 
 GoldenGate enables the exchange and manipulation of data at the transaction level among multiple, heterogeneous platforms across the enterprise. It moves committed transactions with transaction integrity and minimal overhead on your existing infrastructure. Its modular architecture gives you the flexibility to extract and replicate selected data records, transactional changes, and changes to data definition language (DDL) across various topologies.
 
-Oracle GoldenGate allows you to configure your database for high availability by providing bidirectional replication. This approach allows you to set up a *multi-master* or *active-active configuration*. The following diagram is a recommended architecture for Oracle GoldenGate active-active setup on Azure. In the following architecture, the Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. The architecture uses multiple premium or ultra disks (managed disks) for performance and availability.
+Oracle GoldenGate allows you to configure your database for high availability by providing bidirectional replication. This approach allows you to set up a *multi-master* or *active-active configuration*. The following diagram is a recommended architecture for Oracle GoldenGate active-active setup on Azure. In the following architecture, the Oracle database is configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. The architecture uses multiple premium or ultra disks (managed disks) for performance and availability.
 
 :::image type="content" source="./media/oracle-reference-architecture/oracledb_gg_az.png" alt-text="Diagram that shows Oracle Database using availability zones with Data Guard Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_gg_az.png":::
 
@@ -147,7 +147,7 @@ For high availability, the standby shards can be placed in the same availability
 
 Oracle Sharding primarily consists of the following components. For more information, see [Oracle Sharding Overview](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html):
 
-- **Shard catalog**. Special-purpose Oracle database that is a persistent store for all Shard database configuration data. All configuration changes such as adding or removing shards, mapping of the data, and DDLs in a shard database are initiated on the shard catalog. The shard catalog also contains the master copy of all duplicated tables in an SDB.
+- **Shard catalog**. Special-purpose Oracle database that is a persistent store for all Shard database configuration data. All configuration changes such as adding or removing shards, mapping of the data, and DDLs in a shard database are initiated on the shard catalog. The shard catalog also contains the primary copy of all duplicated tables in an SDB.
 
   The shard catalog uses materialized views to automatically replicate changes to duplicated tables in all shards. The shard catalog database also acts as a query coordinator used to process multi-shard queries and queries that don't specify a sharding key.
   
@@ -155,7 +155,7 @@ Oracle Sharding primarily consists of the following components. For more informa
 
 - **Shard directors**. Lightweight services that need to be deployed in each region/availability zone that your shards reside in. Shard Directors are Global Service Managers deployed in the context of Oracle Sharding. For high availability, we recommend that you deploy at least one shard director in each availability zone that your shards exist in.
 
-  When connecting to the database initially, the shard director sets up the routing information and caches the information for subsequent requests, which bypass the shard director. Once the session is established with a shard, all SQL queries and DMLs are supported and executed in the scope of the given shard. This routing is fast and is used for all OLTP workloads that perform intra-shard transactions. We recommend that you to use direct routing for all OLTP workloads that require the highest performance and availability. The routing cache automatically refreshes when a shard becomes unavailable or changes occur to the sharding topology.
+  When you connect to the database initially, the shard director sets up the routing information and caches the information for subsequent requests, which bypass the shard director. Once the session is established with a shard, all SQL queries and DMLs are supported and executed in the scope of the given shard. This routing is fast and is used for all OLTP workloads that perform intra-shard transactions. We recommend that you to use direct routing for all OLTP workloads that require the highest performance and availability. The routing cache automatically refreshes when a shard becomes unavailable or changes occur to the sharding topology.
   
   For high-performance, data-dependent routing, Oracle recommends using a connection pool when accessing data in the sharded database. Oracle connection pools, language-specific libraries, and drivers support Oracle Sharding. For more information, see [Oracle Sharding Overview](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html#GUID-3D41F762-BE04-486D-8018-C7A210D809F9).
 
@@ -188,9 +188,9 @@ The following diagram is a reference architecture for Oracle Sharding with Oracl
 
 System-managed sharding is the easiest to configure and manage. User-defined sharding or composite sharding is well suited for scenarios where your data and application are geo-distributed or in scenarios where you need to have control over the replication of each shard.
 
-In the preceding architecture, composite sharding is used to geodistribute the data and horizontally scale out your application tiers. Composite sharding is a combination of system-managed and user-defined sharding and thus provides the benefit of both methods. In the preceding scenario, data is first sharded across multiple shardspaces separated by region. Then, the data is further partitioned by using consistent hash across multiple shards in the shardspace.
+In the preceding architecture, composite sharding is used to geo-distribute the data and horizontally scale out your application tiers. Composite sharding is a combination of system-managed and user-defined sharding and thus provides the benefit of both methods. In the preceding scenario, data is first sharded across multiple shardspaces separated by region. Then, the data is further partitioned by using consistent hash across multiple shards in the shardspace.
 
-Each shardspace contains multiple shardgroups. Each shardgroup has multiple shards and is a unit of replication. Each shardgroup contains all the data in the shardspace. Shardgroups A1 and B1 are primary shardgroups, while shardgroups A2 and B2 are standbys. You might choose to have individual shards be the unit of replication, rather than a shardgroup.
+Each shardspace contains multiple shardgroups. Each shardgroup has multiple shards and is a unit of replication. Each shardgroup contains all the data in the shardspace. Shardgroups A1 and B1 are primary shardgroups, while shardgroups A2 and B2 are standby. You might choose to have individual shards be the unit of replication, rather than a shardgroup.
 
 In the preceding architecture, a Global Service Manager (GSM)/shard director is deployed in every availability zone for high availability. We recommend that you deploy at least one GSM/shard director per data center/region. Additionally, an instance of the application server is deployed in every availability zone that contains a shardgroup. This setup allows the application to keep the latency between the application server and the database/shardgroup low. If a database fails, the application server in the same zone as the standby database can handle requests once the database role transition happens. Azure Application Gateway and the shard director keep track of the request and response latency and route requests accordingly.
 

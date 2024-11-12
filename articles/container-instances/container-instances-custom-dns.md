@@ -7,7 +7,7 @@ ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.author: tomcassidy
-ms.date: 08/29/2024
+ms.date: 10/21/2024
 ---
 
 # Deploy a container group with custom DNS settings
@@ -35,7 +35,9 @@ For more information on deploying container groups to a virtual network, see the
 
 ## Limitations
 
-For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
+The Azure DNS Resolver IP, 168.63.129.16, is automatically added to the /etc/resolv.conf file in container instances even when a custom DNS configuration is applied. The presence of the Azure DNS Resolver IP can cause incorrect DNS resolutions for distributions using musl-libc, such as Alpine Linux. This incorrect resolution is because [musl-libc sends DNS queries in parallel and caches the fastest response](https://wiki.musl-libc.org/functional-differences-from-glibc#Name-Resolver/DNS). To avoid this issue, we recommend you use distributions that handle DNS queries sequentially, like Ubuntu and RHEL, which use glibc instead of musl-libc.
+
+For other networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
 > Container group deployment to a virtual network is available for Linux containers in most regions where Azure Container Instances is available. For details, see [Regions and resource availability](container-instances-region-availability.md).
@@ -176,11 +178,15 @@ az container exec --resource-group ACIResourceGroup --name pwsh-vnet-dns --exec-
 
 Validate that DNS is working as expected from within your container. For example, read the `/etc/resolv.conf` file to ensure proper configuration of the DNS settings provided in the YAML file.
 
+> [!NOTE]
+> Note that the Azure DNS resolver IP 168.63.129.16 is automatically added to the /etc/resolv.conf file in ACIs, even when a custom DNS configuration is applied. This can lead to resolution issues in distributions that handle DNS querying processes in parallel. For more information, see the [Limitations section](#limitations).
+
 ```bash
 root@wk-caas-81d609b206c541589e11058a6d260b38-90b0aff460a737f346b3b0:/# cat /etc/resolv.conf
 
 nameserver 10.0.0.10
 nameserver 10.0.0.11
+nameserver 168.63.129.16
 search contoso.com
 ```
 

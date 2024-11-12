@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: linux-related-content
 ms.collection: linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: jushiman
 ---

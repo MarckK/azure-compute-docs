@@ -5,7 +5,7 @@ author: swread
 ms.author: sread
 manager: mamccrea 
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 ---

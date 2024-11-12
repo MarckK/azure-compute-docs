@@ -1,7 +1,7 @@
 ---
 title: Azure Windows VM Agent overview 
 description: Learn how to install and detect the Azure Windows VM Agent to manage your virtual machine's interaction with the Azure fabric controller.
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
@@ -86,9 +86,11 @@ You can manually install the Azure Windows VM Agent by using a Windows Installer
 To manually install the Azure Windows VM Agent, [download the installer](https://github.com/Azure/WindowsVMAgent) and select the latest release. You can also search for a specific version in the [GitHub page for Azure Windows VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The Azure Windows VM Agent is supported on Windows Server 2008 (64 bit) and later.
 
 > [!NOTE]
-> It's important to update the `AllowExtensionOperations` option after you manually install the Azure Windows VM Agent on a VM that was deployed from image without `ProvisionVMAgent` enabled.
+> - If a VM was created from a custom or Marketplace image without `ProvisionVMAgent` enabled, then it is important to update the `AllowExtensionOperations` to `true` after you manually install the Azure Windows VM Agent.  
+> - This is NOT required if the VM was created from a specialized disk. For example, if the VM was created directly from an existing disk.
 
 ```powershell
+$vm = Get-AzVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```

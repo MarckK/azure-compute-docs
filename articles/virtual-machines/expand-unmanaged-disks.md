@@ -5,7 +5,7 @@ author: kirpasingh
 manager: roshar
 ms.service: azure-disk-storage
 ms.collection: windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/17/2021
 ms.author: kirpas
 ms.custom: devx-track-azurepowershell

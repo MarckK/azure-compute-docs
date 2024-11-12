@@ -5,7 +5,7 @@ services: virtual-machines
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: padmalathas
@@ -50,7 +50,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 
 ## Mellanox Perftest
 
-The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
+The [Mellanox Perftest package](https://enterprise-support.nvidia.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
 
 
 ```bash

@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 10/22/2024
 ms.author: rogarana
 ms.custom:
   - ignite-2023
@@ -16,7 +16,7 @@ ms.custom:
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-Temporary disks and ephemeral OS disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on what you select as the disk encryption type. For example, if a disk is encrypted with customer-managed keys, then the cache for the disk is encrypted with customer-managed keys, and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
+Temporary disks and ephemeral OS disks are encrypted at rest with either customer-managed or platform-managed keys, depending on what you select as the disk encryption type for the OS disk. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on what you select as the disk encryption type. For example, if a disk is encrypted with customer-managed keys, then the cache for the disk is encrypted with customer-managed keys, and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
 ## Restrictions
 
@@ -70,9 +70,6 @@ You must enable the feature for your subscription before you can use encryption 
 1. Search for **Virtual Machines** and select **+ Create** to create a VM.
 1. Select an appropriate region and a supported VM size.
 1. Fill in the other values on the **Basic** pane as you like, and then proceed to the **Disks** pane.
-
-   :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot of the virtual machine creation basics pane, region and VM size are highlighted." lightbox="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png":::
-
 1. On the **Disks** pane, select **Encryption at host**.
 1. Make the remaining selections as you like.
 
@@ -100,9 +97,6 @@ Now that you have setup an Azure Key Vault and disk encryption set, you can depl
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
 1. Fill in the other values on the **Basic** pane as you like, then proceed to the **Disks** pane.
-
-   :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot of the virtual machine creation basics pane, region and VM size are highlighted." lightbox="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png":::
-
 1. On the **Disks** pane, select **Encryption at host**.
 1. Select **Key management** and select one of your customer-managed keys.
 1. Make the remaining selections as you like.

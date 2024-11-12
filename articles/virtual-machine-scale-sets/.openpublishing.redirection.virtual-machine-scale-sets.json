@@ -344,6 +344,26 @@
             "source_path_from_root": "/articles/virtual-machine-scale-sets/shared-images-powershell.md",
             "redirect_url": "/azure/virtual-machines/image-version?tabs=powershell",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/quick-create-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/quick-create-cli",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/quick-create-portal.md",
+            "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/quick-create-portal",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/quick-create-powershell.md",
+            "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/quick-create-powershell",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vs-create.md",
+            "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vs-create",
+            "redirect_document_id": false
+          }
     ]
 }

@@ -1,5 +1,5 @@
 ---
-title: Azure ECesv5 and ECedsv5-series confidential virtual machines
+title: Azure ECesv5 and ECedsv5-series
 description: Specifications for Azure Confidential Computing's ECesv5 and ECedsv5-series confidential virtual machines.
 author: michamcr
 ms.author: mmcrey
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 11/14/2023
 ---
 
-# ECesv5 and ECedsv5-series confidential VMs
+# ECesv5 and ECedsv5-series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 

@@ -39,11 +39,11 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC24ads_A100_v4 | 1 | 64 |  |  |  |  |
-| Standard_NC48ads_A100_v4 | 1 | 128 |  |  |  |  |
-| Standard_NC96ads_A100_v4 | 1 | 256 |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NC24ads_A100_v4 | 1 | 64 |
+| Standard_NC48ads_A100_v4 | 1 | 128 |
+| Standard_NC96ads_A100_v4 | 1 | 256 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -60,11 +60,11 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC24ads_A100_v4 | 8 | 30000 | 1000 |  |  |  |  |  |  |
-| Standard_NC48ads_A100_v4 | 16 | 60000 | 2000 |  |  |  |  |  |  |
-| Standard_NC96ads_A100_v4 | 32 | 120000 | 4000 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_NC24ads_A100_v4 | 8 | 30000 | 1000 |
+| Standard_NC48ads_A100_v4 | 16 | 60000 | 2000 |
+| Standard_NC96ads_A100_v4 | 32 | 120000 | 4000 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -86,9 +86,9 @@ Network interface info for each size
 
 | Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
 | --- | --- | --- |
-| Standard_NC24ads_A100_v4 | 2 | 20,000 |
-| Standard_NC48ads_A100_v4 | 4 | 40,000 |
-| Standard_NC96ads_A100_v4 | 8 | 80,000 |
+| Standard_NC24ads_A100_v4 | 2 | 20000 |
+| Standard_NC48ads_A100_v4 | 4 | 40000 |
+| Standard_NC96ads_A100_v4 | 8 | 80000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)

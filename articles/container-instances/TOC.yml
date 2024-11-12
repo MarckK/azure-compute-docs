@@ -101,8 +101,6 @@
       href: container-instances-github-action.md
     - name: Encrypt deployment data
       href: container-instances-encrypt-data.md
-    - name: Deploy on dedicated hosts
-      href: container-instances-dedicated-hosts.md
     - name: Availability zones and disaster recovery 
       href: /azure/reliability/reliability-containers
       maintainContext: true

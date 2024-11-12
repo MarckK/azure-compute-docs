@@ -40,19 +40,12 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NG8ads_V620_v1 | 1 | 256 |  |  |  |  |
-| Standard_NG16ads_V620_v1 | 1 | 512 |  |  |  |  |
-| Standard_NG32ads_V620_v1 | 1 | 1024 |  |  |  |  |
-| Standard_NG32adms_V620_v1 | 1 | 1024 |  |  |  |  |
-
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) | Max NVMe Disks (Qty.) | NVMe Disk Size (GiB) | NVMe Disk IOPS | NVMe Disk Speed (MBps) | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NG8ads_V620_v1  | 1 | 256  |  |  |  |  | 1  | 960 |  |  |
-| Standard_NG16ads_V620_v1 | 1 | 512 |  |  |  |  | 2  | 960 |  |  |
-| Standard_NG32ads_V620_v1 | 1 | 1024 |  |  |  |  | 4  | 960 |    |  |
-| Standard_NG32adms_V620_v1 | 1 | 1024 |  |  |  |  | 4  | 960 |    |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Max NVMe Disks (Qty.) | NVMe Disk Size (GiB) |
+| --- | --- | --- | --- | --- |
+| Standard_NG8ads_V620_v1  | 1 | 256  | 1  | 960 |
+| Standard_NG16ads_V620_v1 | 1 | 512 | 2  | 960 |
+| Standard_NG32ads_V620_v1 | 1 | 1024 | 4  | 960 |
+| Standard_NG32adms_V620_v1 | 1 | 1024 | 4  | 960 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -69,12 +62,12 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NG8ads_V620_v1 | 8 | 12800 | 200 |  |  |  |  |  |  |
-| Standard_NG16ads_V620_v1 | 16 | 25600 | 384 |  |  |  |  |  |  |
-| Standard_NG32ads_V620_v1 | 32 | 51200 | 768 |  |  |  |  |  |  |
-| Standard_NG32adms_V620_v1 | 32 | 51200 | 768 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_NG8ads_V620_v1 | 8 | 12800 | 200 |
+| Standard_NG16ads_V620_v1 | 16 | 25600 | 384 |
+| Standard_NG32ads_V620_v1 | 32 | 51200 | 768 |
+| Standard_NG32adms_V620_v1 | 32 | 51200 | 768 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -116,10 +109,10 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 
 | Size Name | Accelerators (Qty.) | Accelerator-Memory (GB) |
 | --- | --- | --- |
-| Standard_NG8ads_V620_v1 | 1/4 |  |
-| Standard_NG16ads_V620_v1 | 1/2 |  |
-| Standard_NG32ads_V620_v1 | 1 |  |
-| Standard_NG32adms_V620_v1 | 1 |  |
+| Standard_NG8ads_V620_v1 | 1/4 | 8 |
+| Standard_NG16ads_V620_v1 | 1/2 | 16 |
+| Standard_NG32ads_V620_v1 | 1 | 32 |
+| Standard_NG32adms_V620_v1 | 1 | 32 |
 
 ---
 

@@ -4,8 +4,8 @@ description: Architectures for Oracle applications with Azure Virtual Machines w
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
-ms.date: 08/18/2023
+ms.topic: concept-article
+ms.date: 10/03/2024
 ms.author: jacobjaygbay
  
 ---
@@ -13,13 +13,13 @@ ms.author: jacobjaygbay
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-Microsoft and Oracle have worked together to enable customers to deploy Oracle applications such as Oracle E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft in the cloud. With the introduction of the preview [private network interconnectivity](configure-azure-oci-networking.md) between Microsoft Azure and Oracle Cloud Infrastructure (OCI), Oracle applications can now be deployed on Azure with their back-end databases in Azure or OCI. Oracle applications can also be integrated with Microsoft Entra ID, allowing you to set up single sign-on so that users can sign into the Oracle application using their Microsoft Entra credentials.
+Microsoft and Oracle work together to enable customers to deploy Oracle applications such as Oracle E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft in the cloud. With the introduction of the [private network interconnectivity](configure-azure-oci-networking.md) between Microsoft Azure and Oracle Cloud Infrastructure (OCI), Oracle applications can be deployed on Azure with their back-end databases in Azure or OCI. Oracle applications can also be integrated with Microsoft Entra ID, allowing you to set up single sign-on so that users can sign into the Oracle application using their Microsoft Entra credentials.
 
 OCI offers multiple Oracle database options for Oracle applications, including DBaaS, Exadata Cloud Service, Oracle RAC, and Infrastructure-as-a-Service (IaaS). Currently, Autonomous Database isn't a supported back-end for Oracle applications.
 
 There are [multiple options](oracle-overview.md) for deploying Oracle applications in Azure, including in a highly available and secure manner. Azure also offers [Oracle database VM images](oracle-vm-solutions.md) that you can deploy if you choose to run your Oracle applications entirely on Azure.
 
-The following sections outline architecture recommendations by both Microsoft and Oracle to deploy Oracle E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft in a cross-cloud configuration or entirely in Azure. Microsoft and Oracle have tested these applications and confirmed that the performance meets standards set by Oracle for these applications.
+The following sections outline architecture recommendations by both Microsoft and Oracle to deploy Oracle E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft in a cross-cloud configuration or entirely in Azure. Microsoft and Oracle tested these applications and confirmed that the performance meets standards set by Oracle for these applications.
 
 ## Architecture considerations
 
@@ -33,7 +33,7 @@ For added security, set up network security groups at a subnet level to ensure o
 
 For high availability, you can set up redundant instances of the different servers in the same availability set or different availability zones. Availability zones allow you to achieve a 99.99% uptime SLA, while availability sets allow you to achieve a 99.95% uptime SLA in-region. Sample architectures shown in this article are deployed across two availability zones.
 
-When deploying an application using the cross-cloud interconnect, you may continue to use an existing ExpressRoute circuit to connect your Azure environment to your on-premises network. However, you need a separate ExpressRoute circuit for the interconnect to OCI than the one connecting to your on-premises network.
+When deploying an application using the cross-cloud interconnect, you can continue to use an existing ExpressRoute circuit to connect your Azure environment to your on-premises network. However, you need a separate ExpressRoute circuit for the interconnect to OCI than the one connecting to your on-premises network.
 
 ## E-Business Suite
 
@@ -43,9 +43,9 @@ Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain 
 
 *Figure 1: E-Business Suite cross-cloud architecture* 
 
-In this architecture, the virtual network in Azure is connected to a virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It's recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
+In this architecture, the virtual network in Azure is connected to a virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. The recommendation is to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
-The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 2) is an example of this architectural pattern:
+The architecture can be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 2) is an example of this architectural pattern:
 
 ![E-Business Suite Azure-only architecture](media/oracle-oci-applications/ebs-arch-azure.png)
 
@@ -57,7 +57,7 @@ The following sections describe the different components at a high level.
 
 ### Application (middle) tier
 
-The application tier is isolated in its own subnet. There are multiple virtual machines set up for fault tolerance and easy patch management. These VMs can be backed by shared storage, which is offered by Azure NetApp Files and Ultra SSDs. This configuration allows for easier deployment of patches without downtime. The machines in the application tier should be fronted by a public load balancer so that requests to the EBS application tier are processed even if one machine in the tier is offline due to a fault.
+The application tier is isolated in its own subnet. There are multiple virtual machines set up for fault tolerance and easy patch management. These VMs can be backed with shared storage offered by Azure NetApp Files and Ultra SSDs. This configuration allows for easier deployment of patches without downtime. The machines in the application tier should be fronted by a public load balancer so requests to the EBS application tier are processed even if one machine in the tier is offline due to a fault.
 
 ### Load balancer
 
@@ -65,9 +65,9 @@ An Azure load balancer allows you to distribute traffic across multiple instance
 
 ### Database tier
 
-This tier hosts the Oracle database and is separated into its own subnet. It's recommended to add network security groups that only permit traffic from the application tier to the database tier on the Oracle-specific database port 1521.
+This tier hosts the Oracle database and is separated into its own subnet. The recommendation is to add network security groups that only permit traffic from the application tier to the database tier on the Oracle-specific database port 1521.
 
-Microsoft and Oracle recommend a high availability setup. High availability in Azure can be achieved by setting up two Oracle databases in two availability zones with Oracle Data Guard, or by using Oracle Database Exadata Cloud Service in OCI. When using Oracle Database Exadata Cloud Service, your database is deployed in two subnets. You may also set up Oracle Database in VMs in OCI in two availability domains with Oracle Data Guard.
+Microsoft and Oracle recommend a high availability setup. High availability in Azure can be achieved by setting up two Oracle databases in two availability zones with Oracle Data Guard, or by using Oracle Database Exadata Cloud Service in OCI. When you use Oracle Database Exadata Cloud Service, your database is deployed in two subnets. You can also set up Oracle Database in VMs in OCI in two availability domains with Oracle Data Guard.
 
 
 ### Identity tier
@@ -76,7 +76,7 @@ The identity tier contains the EBS Asserter VM. EBS Asserter allows you to synch
 
 While this architecture shows IDCS integration, Microsoft Entra ID unified access and single sign-on also can be enabled with Oracle Access Manager with Oracle Internet Directory or Oracle Unified Directory. For more information, see the whitepapers on [Deploying Oracle EBS with IDCS Integration](https://www.oracle.com/a/ocom/docs/deploy-ebusiness-suite-across-oci-azure-sso-idcs.pdf) or [Deploying Oracle EBS with OAM Integration](https://www.oracle.com/a/ocom/docs/deploy-ebusiness-suite-across-oci-azure-sso-oam.pdf).
 
-For high availability, it's recommended that you deploy redundant servers of the EBS Asserter across multiple availability zones with a load balancer in front of it.
+For high availability, the recommendation is to deploy redundant servers of the EBS Asserter across multiple availability zones with a load balancer in front of it.
 
 Once your infrastructure is set up, E-Business Suite can be installed by following the installation guide provided by Oracle.
 
@@ -92,9 +92,9 @@ As with E-Business Suite, you can set up an optional bastion tier for secure adm
 
 *Figure 3: JD Edwards EnterpriseOne cross-cloud architecture*
 
-In this architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It's recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
+In this architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. The recommendation is to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
-The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 4) is an example of this architectural pattern:
+The architecture can be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 4) is an example of this architectural pattern:
 
 ![JD Edwards EnterpriseOne Azure-only architecture](media/oracle-oci-applications/jdedwards-arch-azure.png)
 
@@ -116,7 +116,7 @@ The components of this tier are as follows:
 
 ### Presentation tier
 
-This tier contains various components such as Application Interface Services (AIS), Application Development Framework (ADF), and Java Application Servers (JAS). The servers in this tier communicate with the servers in the middle tier. They're fronted by a load balancer that routes traffic to the necessary server based on the port number and URL that the traffic is received on. It's recommended that you deploy multiple instances of each server type for high availability.
+This tier contains various components such as Application Interface Services (AIS), Application Development Framework (ADF), and Java Application Servers (JAS). The servers in this tier communicate with the servers in the middle tier that are fronted by a load balancer that routes traffic to the necessary server based on the port number and URL that the traffic is received on. It's recommended that you deploy multiple instances of each server type for high availability.
 
 The following are the components in this tier:
     
@@ -125,13 +125,13 @@ The following are the components in this tier:
 - **BI Publisher Server (BIP)** - This server presents reports based on the data collected by the JD Edwards EnterpriseOne application. You can design and control how the report presents the data based on different templates.
 - **Business Services Server (BSS)** -  The BSS enables information exchange and interoperability with other Oracle applications.
 - **Real-Time Events Server (RTE)** - The RTE Server allows you to set up notifications to external systems about transactions occurring in the JDE EnterpriseOne system. It uses a subscriber model and allows third-party systems to subscribe to events. To load balance requests to both RTE servers, ensure that the servers are in a cluster.
-- **Application Development Framework (ADF) Server** - The ADF server is used to run JD Edwards EnterpriseOne applications developed with Oracle ADF. This is deployed on an Oracle WebLogic server with ADF runtime.
+- **Application Development Framework (ADF) Server** - The ADF server is used to run JD Edwards EnterpriseOne applications developed with Oracle ADF. This server is deployed on an Oracle WebLogic server with ADF runtime.
 
 ### Middle tier
 
-The middle tier contains the logic server and batch server. In this case, both servers are installed on the same virtual machine. However, for production scenarios, it's recommended that you deploy logic server and batch server on separate servers. Multiple servers are deployed in the middle tier across two availability zones for higher availability. An Azure load balancer should be created and these servers should be placed in its backend pool to ensure that both servers are active and processing requests.
+The middle tier contains the logic server and batch server. In this case, both servers are installed on the same virtual machine. For production scenarios, the recommendation is to deploy logic server and batch server on separate servers. Multiple servers are deployed in the middle tier across two availability zones for higher availability. An Azure load balancer should be created and these servers should be placed in its backend pool to ensure that both servers are active and processing requests.
 
-The servers in the middle tier receive requests from the servers in the presentation tier and the public load balancer only. Network security group rules must be set up to deny traffic from any address other than the presentation tier subnet and the load balancer. An NSG rule can also be set up to allow traffic on port 22 from the bastion host for management purposes. You may be able to use the public load balancer to load balance requests between the VMs in the middle tier.
+The servers in the middle tier receive requests from the servers in the presentation tier and the public load balancer only. Network security group rules must be set up to deny traffic from any address other than the presentation tier subnet and the load balancer. An NSG rule can also be set up to allow traffic on port 22 from the bastion host for management purposes. You might be able to use the public load balancer to load balance requests between the VMs in the middle tier.
 
 The following two components are in the middle tier:
 
@@ -146,15 +146,15 @@ The following two components are in the middle tier:
 
 Oracle's PeopleSoft application suite contains software for human resources and financial management. The application suite is multi-tiered and applications include human resource management systems (HRMS), customer relationship management (CRM), financials and supply chain management (FSCM), and enterprise performance management (EPM).
 
-It's recommended that each tier of the software suite be deployed in its own subnet. An Oracle database or Microsoft SQL Server is required as the backend database for the application. This section discusses details on deploying PeopleSoft with an Oracle database backend.
+The recommendation is to have each tier of the software suite be deployed in its own subnet. An Oracle database or Microsoft SQL Server is required as the backend database for the application. This section discusses details on deploying PeopleSoft with an Oracle database backend.
 
-The following is a canonical architecture for deploying the PeopleSoft application suite in a cross-cloud architecture (Figure 5).
+The following diagram shows a canonical architecture for deploying the PeopleSoft application suite in a cross-cloud architecture (Figure 5).
 
 ![PeopleSoft cross-cloud architecture](media/oracle-oci-applications/peoplesoft-arch-cross-cloud.png)
 
 *Figure 5: PeopleSoft cross-cloud architecture*
 
-In this sample architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It's recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
+In this sample architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. The recommendation is to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
 The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 6) is an example of this architectural pattern:
 

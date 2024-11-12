@@ -5,7 +5,7 @@ author: MelissaHollingshed
 ms.service: azure-virtual-network
 ms.date: 07/31/2024
 ms.author: mehollin
-ms.topic: article
+ms.topic: overview
 
 ---
 # NVMe Overview

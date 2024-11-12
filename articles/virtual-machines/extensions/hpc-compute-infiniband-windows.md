@@ -5,7 +5,7 @@ services: virtual-machines
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.collection: windows
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-windows
 ms.date: 07/25/2024
 ms.custom: devx-track-azurepowershell

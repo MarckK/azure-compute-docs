@@ -12,4 +12,8 @@ ms.author: jushiman
 
 ## Supported SSH key formats
 
-Azure currently supports SSH protocol 2 (SSH-2) RSA public-private key pairs with a minimum length of 2048 bits. Support for ED25519 Keys is in preview, other key formats such as ECDH and ECDSA are not supported. 
+Azure currently supports following key types:
+* SSH protocol 2 (SSH-2) RSA (Rivest, Shamir, Adleman) with a minimum length of 2048 bits  
+* ED25519 Keys with a fixed length of 256 bits 
+
+Other key formats such as Elliptic-curve Diffie–Hellman (ECDH) and Elliptic Curve Digital Signature Algorithm (ECDSA) are currently not supported. 

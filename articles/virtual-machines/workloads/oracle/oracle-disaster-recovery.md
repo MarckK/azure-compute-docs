@@ -4,8 +4,8 @@ description: A disaster recovery scenario for an Oracle Database 12c database in
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
-ms.date: 08/02/2018
+ms.topic: concept-article
+ms.date: 10/03/2024
 ms.author: jacobjaygbay
 
 ---
@@ -28,7 +28,7 @@ A customer has an Oracle database set up on the primary site. A DR site is in a 
 
 ### Topology
 
-Here is a summary of the Azure setup:
+The following shows a summary of the Azure setup:
 
 - Two sites (a primary site and a DR site)
 - Two virtual networks

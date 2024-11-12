@@ -28,9 +28,6 @@ For additional ways to generate and use SSH keys on a Windows computer, see [How
 
 [!INCLUDE [virtual-machines-common-ssh-support](../includes/virtual-machines-common-ssh-support.md)]
 
-> [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
-
 ## Create an SSH key pair
 
 Use the `ssh-keygen` command to generate SSH public and private key files. By default, these files are created in the ~/.ssh directory. You can specify a different location, and an optional password (*passphrase*) to access the private key file. If an SSH key pair with the same name exists in the given location, those files are overwritten.

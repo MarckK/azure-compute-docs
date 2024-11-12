@@ -7,7 +7,7 @@ ms.subservice: sizes
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 08/27/2024
 ms.author: archat
 ms.reviewer: mattmcinnes, tomvcassidy
 ---
@@ -15,11 +15,6 @@ ms.reviewer: mattmcinnes, tomvcassidy
 # Dpsv6 sizes series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Client VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
-
-> [!IMPORTANT]
-> Azure Virtual Machine series Dpsv6 is currently in **preview**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> For more information and to sign up for the preview, please [visit our announcement and follow the link to signup](https://aka.ms/Cobalt100-VM-Preview-Signup).
 
 [!INCLUDE [dpsv6-summary](./includes/dpsv6-series-summary.md)]
 
@@ -29,7 +24,6 @@ ms.reviewer: mattmcinnes, tomvcassidy
 ## Feature Support
 - [Premium Storage](../../premium-storage-performance.md): Supported
 - [Premium Storage caching](../../premium-storage-performance.md): Supported
-- [Live Migration](../../maintenance-and-updates.md): Supported
 - [Memory Preserving Updates](../../maintenance-and-updates.md): Supported
 - [VM Generation Support](../../generation-2.md): Generation 2 
 - [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported 
@@ -88,7 +82,7 @@ Remote (uncached) storage info for each size
 
 #### Table definitions
 - <sup>1</sup>These sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
-- <sup>2</sup>Special Storage refers to either [Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md) or [Premium SSD v2](../../../virtual-machines/disks-deploy-premium-v2.md) storage.
+
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
@@ -98,7 +92,7 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
+| Size Name | Max NICs (Qty.) | Max Network Bandwidth (Mb/s) |
 | --- | --- | --- |
 | Standard_D2ps_v6 | 2 | 12500 |
 | Standard_D4ps_v6 | 2 | 12500 |
@@ -131,3 +125,5 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 ---
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
+
+

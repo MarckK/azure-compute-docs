@@ -42,7 +42,7 @@ On the **Basics** page, choose a subscription and enter the following values for
 * Region: One of `West Europe`/`North Europe`/`East US`
 * SKU: `Confidential (development policy)`
 * Image source: **Quickstart images**
-* Container image: `mcr.microsoft.com/aci/aci-confidential-helloworld:v1` (Linux)
+* Container image: `mcr.microsoft.com/acc/samples/aci/helloworld:2.8` (Linux)
 
 :::image type="content" source="media/container-instances-confidential-containers-tutorials/confidential-containers-aci-portal-sku.png" alt-text="Screenshot of the SKU selection of a container group, PNG.":::
 

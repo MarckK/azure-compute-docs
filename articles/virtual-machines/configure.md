@@ -4,7 +4,7 @@ description: Learn about configuring and optimizing the InfiniBand enabled H-ser
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/25/2024
 ms.reviewer: cynthn, mattmcinnes
 ms.author: jushiman

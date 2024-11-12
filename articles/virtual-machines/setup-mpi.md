@@ -3,7 +3,7 @@ title: Set up Message Passing Interface (MPI) for HPC - Azure Virtual Machines |
 description: Learn how to set up MPI for HPC on Azure.
 ms.service: azure-virtual-machines
 ms.subservice: hpc
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: jushiman

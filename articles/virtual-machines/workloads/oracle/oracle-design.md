@@ -4,8 +4,8 @@ description: Design and implement an Oracle database in your Azure environment.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
-ms.date: 10/15/2021
+ms.topic: concept-article
+ms.date: 10/03/2024
 ms.author: jacobjaygbay
 ms.reviewer: tigorman
 ---
@@ -193,7 +193,7 @@ To maximize throughput, start with read-only for host caching whenever possible.
 
 - For operating system disks, use premium SSD with read-write host caching.
 - For data disks that contain the following, use premium SSD with read-only host caching: Oracle data files, temp files, control files, block change tracking files, BFILEs, files for external tables, and flashback logs.
-- For data disks that contain Oracle online redo log files, use premium SSD or UltraDisk with no host caching, the **None** option. Oracle redo log files that are archived and Oracle Recovery Manager backup sets, can also reside with the online redo log files. Host caching is limited to 4095 GiB, so don't allocate a premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, stripe several premium SSDs with RAID-0. Use Linux LVM2 or Oracle Automatic Storage Management.
+- For data disks that contain Oracle online redo log files, use premium SSD or UltraDisk with no host caching, the **None** option. Oracle redo log files that are archived and Oracle Recovery Manager backup sets, can also reside with the online redo log files. Host caching is limited to 4,095 GiB, so don't allocate a premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, stripe several premium SSDs with RAID-0. Use Linux LVM2 or Oracle Automatic Storage Management.
 
 If workloads vary greatly between the day and evening, and the I/O workload can support it, P1-P20 premium SSD with bursting might provide the performance required during night-time batch loads or limited I/O demands.  
 

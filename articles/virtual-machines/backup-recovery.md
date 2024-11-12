@@ -4,7 +4,7 @@ description: Overview backup options for Azure virtual machines.
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: recovery
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/12/2023
 ms.author: jushiman
 ---

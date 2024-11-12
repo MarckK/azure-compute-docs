@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2 and about its regional availability.
 author: roygara
 ms.author: rogarana
-ms.date: 08/12/2024
+ms.date: 10/21/2024
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -172,7 +172,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. On the **Basics** page, select a [supported region](#regional-availability) and set **Availability options** to **Availability zone**.
-1. Select one of the zones.
+1. Select one or more of the zones.
 1. Fill in the rest of the values on the page as you like.
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-portal-deploy.png" alt-text="Screenshot of the basics page, region and availability options and zones highlighted." lightbox="media/disks-deploy-premium-v2/premv2-portal-deploy.png":::

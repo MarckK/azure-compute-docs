@@ -4,7 +4,7 @@ description: Learn about performance and scalability of HX-series VM sizes in Az
 services: virtual-machines
 ms.service: azure-virtual-machines
 ms.subservice: hpc
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: padmalathas

@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.collection: linux
 ms.service: azure-virtual-machines
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: mattmcinnes
 ms.reviewer: jamesser
@@ -15,9 +15,6 @@ ms.reviewer: jamesser
 When hosting a Linux virtual machine on Azure, the most common method for accessing that VM is through the Secure Shell Protocol (SSH). Any standard SSH client commonly found in Linux and Windows allows you to connect. You can also use [Azure Cloud Shell](/azure/cloud-shell/overview) from any browser.
 
 This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](/azure/bastion/bastion-overview).
-
-> [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
 
 ## Prerequisites
 

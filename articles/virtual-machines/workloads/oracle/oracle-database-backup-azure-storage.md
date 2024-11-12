@@ -5,8 +5,8 @@ author: cro27
 ms.service: oracle-on-azure
 ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
-ms.topic: article
-ms.date: 01/28/2021
+ms.topic: how-to
+ms.date: 10/03/2024
 ms.author: cholse
 ms.reviewer: jjaygbay1
 ---
@@ -15,9 +15,9 @@ ms.reviewer: jjaygbay1
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-This article demonstrates the use of Azure Files as a medium to back up and restore an Oracle database running on an Azure virtual machine (VM). The steps in this article have been tested against Oracle 12.1 and later.
+This article demonstrates the use of Azure Files as a medium to back up and restore an Oracle database running on an Azure virtual machine (VM). The steps in this article were tested against Oracle 12.1 and later.
 
-In this article, you use Oracle Recovery Manager (RMAN) to back up the database to an Azure file share mounted to a VM via the Server Message Block (SMB) protocol. Using Azure Files for backup media is cost-effective and performant. However, for very large databases, Azure Backup provides a better solution.
+In this article, you use Oracle Recovery Manager (RMAN) to back up the database to an Azure file share mounted to a VM via the Server Message Block (SMB) protocol. Using Azure Files for backup media is cost-effective and performant. However, for large databases, Azure Backup provides a better solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -130,7 +130,7 @@ In this article, you use Oracle Recovery Manager (RMAN) to back up the database 
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
 
-11. Make sure the database is in `ARCHIVELOG` mode to enable online backups.
+11. Verify the database is in `ARCHIVELOG` mode to enable online backups.
 
     Check the log archive status:
 
@@ -211,7 +211,7 @@ Set up your storage account:
    1. For **Name**, enter **orabkup1**.
    1. Set **Quota** to **10240** gibibytes (GiB).
 
-      The quota reflects an upper boundary that the file share can grow to. Because you're using standard storage in this example, resources are pay-as-you-go and not provisioned. So, setting the quota to 10 tebibytes (TiB) won't incur costs beyond what you use. If your backup strategy requires more storage, set the quota to an appropriate level to hold all backups.
+      The quota reflects an upper boundary that the file share can grow to. Because you're using standard storage in this example, resources are pay-as-you-go and not provisioned. Setting the quota to 10 tebibytes (TiB) doesn't incur costs beyond what you use. If your backup strategy requires more storage, set the quota to an appropriate level to hold all backups.
    1. Under **Tiers**, select **Transaction optimized**.
    1. Select **Create**.
 
@@ -238,7 +238,7 @@ To set up your storage account and file share, run the following commands:
    az storage share create --account-name orabackup1 --name orabackup --quota 10240
    ```
 
-3. Retrieve the storage account's primary key (`key1` value). You'll need when you mount the file share to your VM.
+3. Retrieve the storage account's primary key (`key1` value). You need it when you mount the file share to your VM.
 
    ```azurecli
    az storage account keys list --resource-group rg-oracle --account-name orabackup1
@@ -363,9 +363,9 @@ In this section, you use Oracle RMAN to take a full backup of the database and a
     RMAN> backup as compressed backupset database plus archivelog;
     ```
 
-You've now backed up the database online by using Oracle RMAN, with the backup located in Azure Files. Because you're storing the backups in Azure Files, you can access them from other VMs if you need to clone the database.
+You backed up the database online by using Oracle RMAN, with the backup located in Azure Files. Because you're storing the backups in Azure Files, you can access them from other VMs if you need to clone the database.
 
-Although using RMAN and Azure Files for database backup has many advantages, backup and restore time is linked to the size of the database. For very large databases, these operations can take considerable time.
+Using RMAN and Azure Files for database backup has many advantages. The backup and restore time is linked to the size of the database. For large databases, these operations can take considerable time.
 
 An alternative is to use application-consistent VM backups through Azure Backup. This mechanism uses snapshot technology to perform fast backups irrespective of database size. Integration with a Recovery Services vault provides cloud storage of your Oracle Database backups, so you can access them from other VMs and other Azure regions.
 

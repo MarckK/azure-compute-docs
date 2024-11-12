@@ -14,7 +14,7 @@ ms.date: 08/29/2024
 Azure Container Instances (ACI) allow you to package, deploy, and manage cloud applications without having to manage the underlying infrastructure. Common scenarios that run on ACI include burst workloads, task automation, and build jobs. You can use ACI by defining the resources they need per container group, including vCPU and memory. ACI is a great solution for any scenario that can operate in isolated container. ACI provides fast start-up times, hyper-visor level security, custom container sizes, and more. The following information helps you determine if Azure Container Instances is best for your scenario.
 
 ## What to consider
-User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they're encrypted/transformed when stored in the backend.     
+User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they're encrypted/transformed when stored in the backend.
 
 There are default limits that may require quota increases. For more details: [Resource availability & quota limits for ACI - Azure Container Instances | Microsoft Learn](./container-instances-resource-and-quota-limits.md)
 
@@ -22,13 +22,13 @@ Container Images can't be larger than 15 GB, any images above this size may caus
 
 If your container image is larger than 15 GB, you can [mount an Azure Fileshare](container-instances-volume-azure-files.md) to store the image.
 
-If a container group restarts, the container group’s IP may change. We advise against using a hard coded IP address in your scenario. If you need a static public IP address, use Application Gateway: [Static IP address for container group - Azure Container Instances | Microsoft Learn](./container-instances-application-gateway.md).
+If a container group restarts, the container group’s IP may change. We advise against using a hard coded IP address in your scenario. If you need a static public IP address, use Application Gateway: [Static IP address for container group - Azure Container Instances | Microsoft Learn](./container-instances-application-gateway.md). If you want to ensure your container group is reachable through its domain name even if the container group is recreated, you can use init containers: [Deploy Azure Container Instances with an initialization container | Microsoft Learn](/training/modules/secure-apps-azure-container-instances-sidecar/6-deploy-with-init-container).
 
 There are ports that are reserved for service functionality. We advise you not to use these ports, because their use leads to unexpected behavior: [Does the ACI service reserve ports for service functionality?](./container-instances-faq.yml).
 
 Your container groups may restart due to platform maintenance events. These maintenance events are done to ensure the continuous improvement of the underlying infrastructure: [Container had an isolated restart without explicit user input](./container-instances-faq.yml).
 
-ACI doesn't allow [privileged container operations](./container-instances-faq.yml). We advise you not to depend on using the root directory for your scenario 
+ACI doesn't allow [privileged container operations](./container-instances-faq.yml). We advise you not to depend on using the root directory for your scenario.
 
 ## Best practices
 

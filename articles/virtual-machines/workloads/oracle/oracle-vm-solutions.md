@@ -5,8 +5,8 @@ author: jjaygbay1
 ms.service: oracle-on-azure
 ms.custom:
 ms.collection: linux
-ms.topic: article
-ms.date: 04/11/2023
+ms.topic: concept-article
+ms.date: 10/08/2024
 ms.author: jacobjaygbay
 ---
 # Oracle virtual machine images and their deployment on Microsoft Azure
@@ -215,7 +215,7 @@ x64             weblogic-141100-jdk8-rhel76   Oracle       owls-141100-jdk8-rhel
 x64             weblogic-141100-jdk8-rhel76   Oracle       owls-141100-jdk8-rhel76   Oracle:weblogic-141100-jdk8-rhel76:owls-141100-jdk8-rhel76:1.1.3    1.1.3
 ```
 
-These images are bring-your-own-license. You're charged only for compute, storage, and networking costs incurred by running a VM.  You must have the proper licensed to use Oracle software and have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. For more information about license mobility, see [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
+These images are bring-your-own-license. You're charged only for compute, storage, and networking costs incurred by running a VM.  You must have the proper licensed to use Oracle software and have a current support agreement in place with Oracle. Oracle guarantees license mobility from on-premises to Azure. For more information about license mobility, see [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
 
 You can also choose to base your solutions on a custom image that you create from scratch in Azure or upload a custom image from your on-premises environment.
 
@@ -233,7 +233,7 @@ You can use a single disk if that meets your performance needs. However, you can
 
 Azure NetApp Files was designed to run high-performance workloads like databases in the cloud. The service provides the following advantages:
 
-- Azure native shared NFS storage service for running Oracle workloads either through VM native NFS client, or Oracle dNFS
+- Azure native shared Network file system (NFS) storage service for running Oracle workloads either through VM native NFS client, or Oracle dNFS
 - Scalable performance tiers that reflect the real-world range of IOPS demands
 - Low latency
 - High availability, high durability, and manageability at scale, typically demanded by mission critical enterprise workloads, like SAP and Oracle
@@ -297,11 +297,11 @@ Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Mar
   -Dweblogic.rjvm.enableprotocolswitch=true
   ```
 
-- **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This approach can be done as long as you use a fixed port number for each of the managed servers, not dynamically assigned from a range, and don't start more managed servers than there are machines the administrator is tracking. That is, there's no more than one managed server per VM.
+- **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This approach can be done when you use a fixed port number for each of the managed servers, not dynamically assigned from a range. Also, don't start more managed servers than there are machines the administrator is tracking, there's only one managed server per virtual machine (VM).
 
   If your configuration results in more Oracle WebLogic Servers being started than there are VMs, it isn't possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. That is, if multiple Oracle WebLogic Server instances share the same virtual machine, the others on that VM fail.
 
-  If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing isn't possible because Azure doesn't support mapping from a single public port to multiple private ports, as would be required for this configuration.
+  If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing isn't possible. Azure doesn't support mapping from a single public port to multiple private ports, as would be required for this configuration.
 
 - **Multiple instances of Oracle WebLogic Server on a VM.** Depending on your deployment requirements, you might consider running multiple instances of Oracle WebLogic Server on the same VM, if the VM is large enough. For example, on a midsize VM, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture. Running multiple instances of Oracle WebLogic Server on just one VM would be such a single point.
 

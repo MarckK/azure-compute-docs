@@ -4,8 +4,8 @@ description: Connect Azure ExpressRoute with Oracle Cloud Infrastructure (OCI) F
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
-ms.date: 04/16/2023
+ms.topic: concept-article
+ms.date: 10/02/2024
 ms.author: jacobjaygbay
 
 ---
@@ -75,11 +75,11 @@ After you create your ExpressRoute, configure direct connectivity between Expres
    1. Select **Create**.
 
 1. Complete linking the FastConnect to virtual cloud network under your Oracle tenant with Dynamic Routing Gateway, using Route Table.
-1. Navigate to Azure and ensure that the **Provider Status** for your ExpressRoute circuit has changed to **Provisioned** and that a peering of type **Azure private** has been provisioned. This status is a prerequisite for the following step.
+1. Navigate to Azure and ensure that the **Provider Status** for your ExpressRoute circuit is changed to **Provisioned** and that a peering of type **Azure private** is now provisioned. This status is a prerequisite for the following step.
 
    :::image type="content" source="media/configure-azure-oci-networking/exr-provider-status.png" alt-text="Screenshot shows the Oracle ExpressRoute circuit with the ExpressRoute provider status highlighted." lightbox="media/configure-azure-oci-networking/exr-provider-status.png":::
 
-1. Select the **Azure private** peering. You see the peering details have automatically been configured based on the information you entered when setting up your FastConnect circuit.
+1. Select the **Azure private** peering. You see the peering details are automatically configured based on the information you entered when setting up your FastConnect circuit.
 
    :::image type="content" source="media/configure-azure-oci-networking/exr-private-peering.png" alt-text="Screenshot shows private peering settings." lightbox="media/configure-azure-oci-networking/exr-private-peering.png":::
 
@@ -89,11 +89,11 @@ Create a virtual network and virtual network gateway, if you haven't already. Fo
 
 Set up the connection between the virtual network gateway and your ExpressRoute circuit by using the [Terraform script](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) or by using the PowerShell command to [Configure ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
 
-Once you have completed the network configuration, you can verify your configuration by selecting **Get ARP Records** and **Get route table** under the ExpressRoute Private peering page in the Azure portal.
+Once you completed the network configuration, you can verify your configuration by selecting **Get ARP Records** and **Get route table** under the ExpressRoute Private peering page in the Azure portal.
 
 ## Automation
 
-Microsoft has created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before they run, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Microsoft Entra service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) or using the Azure CLI. For more information, see [CLI Authentication](https://www.terraform.io/cli/auth).
+Microsoft created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before they run, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Microsoft Entra service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) or using the Azure CLI. For more information, see [CLI Authentication](https://www.terraform.io/cli/auth).
 
 For the Terraform scripts and related documentation to deploy the inter-connect, see [Azure-OCI Cloud Inter-Connect](https://aka.ms/azureociinterconnecttf).
 
@@ -107,11 +107,11 @@ To delete the interconnect, perform these steps in the order given. Failure to d
 
 1. Delete the ExpressRoute connection. Delete the connection by selecting the **Delete** icon on the page for your connection. For more information, see [Clean up resources](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#clean-up-resources).
 1. Delete the Oracle FastConnect from the Oracle Cloud Console.
-1. Once the Oracle FastConnect circuit has been deleted, you can delete the Azure ExpressRoute circuit.
+1. Once the Oracle FastConnect circuit is deleted, you can delete the Azure ExpressRoute circuit.
 
 The delete and deprovisioning process is complete.
 
 ## Next steps
 
 - For more information about the cross-cloud connection between OCI and Azure, see [Access to Microsoft Azure](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
-- Use Terraform scripts to deploy infrastructure for targeted Oracle applications over Azure, and configure the network interconnect. For more information, see [Azure-OCI Cloud Inter-Connect](https://aka.ms/azureociinterconnecttf).
+- Learn how to use Terraform scripts to deploy infrastructure for targeted Oracle applications over Azure, and configure the network interconnect. For more information, see [Azure-OCI Cloud Inter-Connect](https://aka.ms/azureociinterconnecttf).

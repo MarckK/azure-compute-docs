@@ -4,7 +4,7 @@ description: Learn about the preview support for the HC-series VM size in Azure.
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/06/2024
 ms.reviewer: wwilliams
 ms.author: padmalathas

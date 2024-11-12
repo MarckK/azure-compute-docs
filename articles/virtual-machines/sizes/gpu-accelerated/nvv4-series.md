@@ -40,12 +40,12 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) | Local-Special-Disk-Count | Local-Special-Disk-Size-GB | Local-Special-Disk-RR-IOPS | Local-Special-Disk-RR-MBps |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4as_v4 | 1 | 88 |  |  |  |  |  |  |  |  |
-| Standard_NV8as_v4 | 1 | 176 |  |  |  |  |  |  |  |  |
-| Standard_NV16as_v4 | 1 | 352 |  |  |  |  |  |  |  |  |
-| Standard_NV32as_v4 | 1 | 704 |  |  |  |  |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NV4as_v4 | 1 | 88 |
+| Standard_NV8as_v4 | 1 | 176 |
+| Standard_NV16as_v4 | 1 | 352 |
+| Standard_NV32as_v4 | 1 | 704 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -62,12 +62,12 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4as_v4 | 4 | 6400 | 96 |  |  |  |  |  |  |
-| Standard_NV8as_v4 | 8 | 12800 | 192 |  |  |  |  |  |  |
-| Standard_NV16as_v4 | 16 | 25600 | 384 |  |  |  |  |  |  |
-| Standard_NV32as_v4 | 32 | 51200 | 768 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_NV4as_v4 | 4 | 6400 | 96 |
+| Standard_NV8as_v4 | 8 | 12800 | 192 |
+| Standard_NV16as_v4 | 16 | 25600 | 384 |
+| Standard_NV32as_v4 | 32 | 51200 | 768 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)

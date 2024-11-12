@@ -5,7 +5,7 @@ author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: quickstart
-ms.date: 04/20/2023
+ms.date: 10/03/2024
 ms.author: jacobjaygbay
 ms.custom: mode-other, devx-track-azurecli, devx-track-java
 ms.devlang: azurecli

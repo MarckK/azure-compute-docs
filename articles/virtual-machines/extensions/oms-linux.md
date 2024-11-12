@@ -1,7 +1,7 @@
 ---
 title: Log Analytics virtual machine extension for Linux 
 description: Deploy the Log Analytics agent on Linux virtual machine using a virtual machine extension.
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content

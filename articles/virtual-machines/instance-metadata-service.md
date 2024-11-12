@@ -37,6 +37,9 @@ Here's sample code to retrieve all metadata for an instance. To access a specifi
 > [!IMPORTANT]
 > This example bypasses proxies. You **must** bypass proxies when querying IMDS. See [Proxies](#proxies) for additional information.
 
+> [!NOTE]
+> IMDS requests must be sent using VM's primary NIC and primary IP, and DHCP must be enabled.
+
 #### [Windows](#tab/windows/)
 
 ```powershell
@@ -1118,7 +1121,7 @@ The decoded document contains the following fields:
 | `timestamp.expiresOn` | The UTC timestamp for when the signed document expires | 2018-10-01
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2019-04-30
-| `sku` | Specific SKU for the VM image (correlates to `compute/sku` property from the Instance Metadata endpoint \[`/metadata/instance`\]) | 2019-11-01
+| `sku` | Specific SKU for the VM image (correlates to `compute/sku` property from the Instance Metadata endpoint [`/metadata/instance`]) | 2019-11-01
 
 > [!NOTE]
 > For Classic (non-Azure Resource Manager) VMs, only the vmId is guaranteed to be populated.

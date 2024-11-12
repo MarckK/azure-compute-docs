@@ -1,5 +1,5 @@
 ---
-title: NVads-V710 v-5 size series
+title: NVads V710 v5 size series
 description: Information on and specifications of the NVads-V710 v-5-series sizes
 author: iamwilliew
 ms.service: azure-virtual-machines
@@ -10,9 +10,14 @@ ms.author: wwilliams
 ms.reviewer: mattmcinnes
 ---
 
-# NVads-V710 v-5 sizes series
+# NVads V710 v5-series (Preview)
 
 [!INCLUDE [nvadsv710-v5-summary](./includes/nvadsv710-v5-summary.md)]
+
+> [!NOTE]
+> - This VM series is currently in **Preview**. 
+> - See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+> - [Sign up for the public preview.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-2EKbNvC7xEohJW7nFBrIFUNzVVNzlMQ002TzdYRzZUR0EwOTFGQjZJUy4u)
 
 ## Host specifications
 [!INCLUDE [nvadsv710-v5-series-specs](./includes/nvadsv710-v5-series-specs.md)]
@@ -41,13 +46,13 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage information for each size.
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4ads_V710_v5 | 2 | 256 |  |  |  |  |
-| Standard_NV8ads_V710_v5 | 4 | 512 |  |  |  |  |
-| Standard_NV12ads_V710_v5 | 6 | 768 |  |  |  |  |
-| Standard_NV24ads_V710_v5 | 12 | 1536 |  |  |  |  |
-| Standard_NV28adms_V710_v5 | 14 | 1536 |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NV4ads_V710_v5 | 2 | 256 |
+| Standard_NV8ads_V710_v5 | 4 | 512 |
+| Standard_NV12ads_V710_v5 | 6 | 768 |
+| Standard_NV24ads_V710_v5 | 12 | 1536 |
+| Standard_NV28adms_V710_v5 | 14 | 1536 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../managed-disks-overview.md)
@@ -64,13 +69,13 @@ Local (temp) storage information for each size.
 
 Remote (uncached) storage information for each size.
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4ads_V710_v5 | 2 | 7600 | 180 |  |  |  |  |  |  |
-| Standard_NV8ads_V710_v5 | 4 | 1520 | 360 |  |  |  |  |  |  |
-| Standard_NV12ads_V710_v5 | 6 | 2280 | 540 |  |  |  |  |  |  |
-| Standard_NV24ads_V710_v5 | 12 | 4560 | 1080 |  |  |  |  |  |  |
-| Standard_NV28adms_V710_v5 | 14 | 5320 | 1260 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_NV4ads_V710_v5 | 2 | 7600 | 180 |
+| Standard_NV8ads_V710_v5 | 4 | 1520 | 360 |
+| Standard_NV12ads_V710_v5 | 6 | 2280 | 540 |
+| Standard_NV24ads_V710_v5 | 12 | 4560 | 1080 |
+| Standard_NV28adms_V710_v5 | 14 | 5320 | 1260 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../managed-disks-overview.md)
@@ -111,8 +116,13 @@ Network interface information for each size.
 
 Accelerator (GPUs, FPGAs, etc.) information for each size.
 
-> [!NOTE]
-> No accelerators are present in this series.
+| Size Name | Accelerators (Qty.) | Accelerator-Memory (GB) |
+| --- | --- | --- |
+| Standard_NV4ads_V710_v5 | 1/6 | 4 |
+| Standard_NV8ads_V710_v5 | 1/3 | 8 |
+| Standard_NV12ads_V710_v5 | 1/2 | 12 |
+| Standard_NV24ads_V710_v5 | 1 | 24 |
+| Standard_NV28adms_V710_v5 | 1 | 24 |
 
 ---
 

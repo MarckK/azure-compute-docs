@@ -5,7 +5,7 @@ author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
 ms.date: 03/05/2021
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell, linux-related-content

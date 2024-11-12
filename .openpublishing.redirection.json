@@ -1,4 +1,8 @@
 {
   "redirections": [
+    {
+      "source_path": "articles/container-instances/container-instances-dedicated-hosts.md",
+      "redirect_url": "container-instances-overview"
+    }
   ]
 }

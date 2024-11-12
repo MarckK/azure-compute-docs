@@ -5,8 +5,8 @@ author: cro27
 ms.service: oracle-on-azure
 ms.custom: linux-related-content
 ms.collection: linux
-ms.topic: article
-ms.date: 01/28/2021
+ms.topic: concept-article
+ms.date: 10/03/2024
 ms.author: cholse
 ms.reviewer: jjaygbay1 
 ---
@@ -17,17 +17,17 @@ ms.reviewer: jjaygbay1
 
 Database backups help protect the database against data loss that's due to storage component failure and datacenter failure. They can also be a means of recovery from human error and a way to clone a database for development or testing purposes.
 
-In Azure, all storage is highly redundant. The loss of one or more disks won't lead to a database outage. Backups are most often used to protect against human error, to facilitate cloning operations, or to preserve data for regulatory purposes.
+In Azure, all storage is highly redundant. The loss of one or more disks doesn't lead to a database outage. Backups are most often used to protect against human error, to facilitate cloning operations, or to preserve data for regulatory purposes.
 
-Backups also help protect against regional outages when a disaster recovery technology like DataGuard is not in use. In this case, the backups must be stored in different Azure regions via geo-redundant replication, so they're available outside the primary database region.
+Backups also help protect against regional outages when a disaster recovery technology like DataGuard isn't in use. In this case, the backups must be stored in different Azure regions via geo-redundant replication, so they're available outside the primary database region.
 
 ## Azure Storage
 
-The [Azure Storage services](/azure/storage/common/storage-introduction) are Microsoft's cloud solution for modern data-storage scenarios. Azure Storage offers services that you can use to mount external storage to an Azure Linux virtual machine (VM), which is suitable as backup media for Oracle Database instances. A backup tool such as Oracle Recovery Manager (RMAN) is required to initiate a backup or restore operation, and to copy the backup to or from Azure Storage.
+The [Azure Storage services](/azure/storage/common/storage-introduction) are Microsoft's cloud solution for modern data-storage scenarios. Azure Storage offers services used to mount external storage to an Azure Linux virtual machine (VM), which is suitable as backup media for Oracle Database instances. A backup tool such as Oracle Recovery Manager (RMAN) is required to initiate a backup or restore operation, and to copy the backup to or from Azure Storage.
 
 Azure Storage services offer the following benefits:
 
-- **Durable and highly available**. Redundancy helps keep data safe during transient hardware failures. All storage is triple mirrored by default. You can also opt to replicate data across datacenters or geographical regions for more protection from local catastrophes or natural disasters. Data replicated in this way remains highly available in the event of an unexpected outage.
+- **Durable and highly available**. Redundancy helps keep data safe during transient hardware failures. All storage is triple mirrored by default. You can also opt to replicate data across datacenters or geographical regions for more protection from local catastrophes or natural disasters. Data replicated in this way remains highly available should an unexpected outage occur.
 
 - **Secure**: Azure Storage encrypts all data written to a storage account. Azure Storage gives you detailed control over who has access to your data.
 
@@ -35,7 +35,7 @@ Azure Storage services offer the following benefits:
 
 - **Managed**: Azure handles hardware maintenance, updates, and critical issues for you.
 
-- **Accessible**: Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, and Go. Microsoft also provides a mature REST API.
+- **Accessible**: Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in various languages, including: .NET, Java, Node.js, Python, PHP, Ruby, and Go. Microsoft also provides a mature REST API.
 
   Azure Storage supports scripting in Azure PowerShell or the Azure CLI. The Azure portal and Azure Storage Explorer offer visual solutions for working with your data.
 
@@ -57,7 +57,7 @@ The ability to access backup storage across regions is an important aspect of bu
 - [Zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage): Your data is replicated synchronously across three availability zones in the primary region. LRS helps protect your data in the primary region and helps protect each availability zone.
 - [Geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage): Your data is replicated asynchronously to a secondary region. LRS helps protect your data in the primary and secondary regions.
 - [Geo-zone-redundant storage (GZRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage): Your data is copied synchronously across three Azure availability zones in the primary region via ZRS. Your data is then copied asynchronously to a single physical location in the secondary region. In all locations, LRS helps protect the data.
-- [Read-access geo-redundant storage (RA-GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) and [read-access geo-zone-redundant storage (RA-GZRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage): You have read-only access to data replicated to the secondary region at all times.
+- [Read-access geo-redundant storage (RA-GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) and [read-access geo-zone-redundant storage (RA-GZRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage): You have read-only access to data replicated to the secondary region always.
 
 #### Blob and file storage
 
@@ -85,13 +85,13 @@ Azure Blob Storage is a cloud-based service for storing large amounts of unstruc
 
 Blobfuse is currently available for Ubuntu and RedHat distributions. It's also available for Kubernetes via the [CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver).
 
-Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Storage Gen2. But it doesn't perform as well as alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](/azure/storage/blobs/storage-how-to-mount-container-linux) protocol to mount Azure Blob Storage.
+Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Storage Gen2. But it doesn't perform and alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](/azure/storage/blobs/storage-how-to-mount-container-linux) protocol to mount Azure Blob Storage.
 
 #### NFS v3.0
 
 Azure support for the NFS v3.0 protocol is available. [NFS support](/azure/storage/blobs/network-file-system-protocol-support) enables Windows and Linux clients to mount an Azure Blob Storage container to an Azure VM.
 
-To ensure network security, the storage account that you use for NFS mounting must be contained within a virtual network. Microsoft Entra security and access control lists (ACLs) are not yet supported in accounts that have NFS 3.0 protocol support enabled on them.
+To ensure network security, the storage account that you use for NFS mounting must be contained within a virtual network. Microsoft Entra security and access control lists (ACLs) aren't yet supported in accounts that have NFS 3.0 protocol support enabled on them.
 
 ### Azure Files
 
@@ -109,7 +109,7 @@ You can mount Azure file shares in Linux distributions by using the NFS v4.1 pro
 
 #### Azure Files with SMB 3.0
 
-You can mount Azure file shares in Linux distributions by using the SMB kernel client. The Common Internet File System (CIFS) protocol, available on Linux distributions, is a dialect of SMB. When you mount an Azure file share on Linux VMs by using SMB, it's mounted as a CIFS-type file system, and the CIFS package must be installed.
+You can mount Azure file shares in Linux distributions by using the SMB kernel client. The Common Internet File System (CIFS) protocol, available on Linux distributions, is a dialect of SMB. When you mount an Azure file share on Linux VMs by using SMB, it gets mounted as a CIFS-type file system, and the CIFS package must be installed.
 
 The ability to mount Azure file shares via SMB is generally available in all Azure regions. It shows the same performance characteristics as NFS v3.0 and v4.1 protocols, so we currently recommend it as the method to provide backup storage media to Azure Linux VMs.  
 
@@ -119,11 +119,11 @@ Because Azure Files is a multiuser file-share service, you should tune certain c
 
 ## Azure NetApp Files
 
-The [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) service is a complete storage solution for Oracle Database in Azure VMs. Built on metered file storage, it supports any workload type and is highly available by default. Together with the Oracle Direct NFS driver, Azure NetApp Files provides a highly optimized storage layer for Oracle Database.
+The [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) service is a complete storage solution for Oracle Database in Azure VMs. It's built on metered file storage, supports any workload type, and is highly available by default. Together with the Oracle Direct NFS driver, Azure NetApp Files provides a highly optimized storage layer for Oracle Database.
 
-Azure NetApp Files provides efficient storage-based snapshots on the underlying storage system that uses a redirect-on-write mechanism. Although snapshots are fast to take and restore, they serve only as a first line of defense. They can account for most of the required restore operations of any organization, which are often part of recovery from human error.
+Azure NetApp Files provides efficient storage-based snapshots on the underlying storage system that uses a redirect-on-write mechanism. Although snapshots are fast to take and restore, they serve only as a frontline of defense. They can account for most of the required restore operations of any organization, which are often part of recovery from human error.
 
-However, snapshots are not a complete backup. To cover all backup and restore requirements, you must create [external snapshot replicas](/azure/azure-netapp-files/cross-region-replication-introduction) or other [backup vaults](/azure/azure-netapp-files/backup-introduction) in a remote geography to help protect against regional outages. [Read more about how Azure NetApp Files snapshots work](/azure/azure-netapp-files/snapshots-introduction).
+However, snapshots aren't a complete backup. To cover all backup and restore requirements, you must create [external snapshot replicas](/azure/azure-netapp-files/cross-region-replication-introduction) or other [backup vaults](/azure/azure-netapp-files/backup-introduction) in a remote geography to help protect against regional outages. [Read more about how Azure NetApp Files snapshots work](/azure/azure-netapp-files/snapshots-introduction).
 
 To ensure the creation of database-consistent snapshots, the backup process must be orchestrated between the database and the storage. The Azure Application Consistent Snapshot (AzAcSnap) command-line tool enables data protection for third-party databases. It handles all the orchestration required to put those databases into an application-consistent state before taking a storage snapshot. After that, it returns the databases to an operational state. Oracle Database instances are supported with AzAcSnap since [version 5.1](/azure/azure-netapp-files/azacsnap-release-notes#azacsnap-v51-preview-build-2022012585030).
 
@@ -144,11 +144,11 @@ Azure Backup offers multiple types of replication to keep your backup data highl
 
 A vault created with GRS redundancy includes the option to configure the [Cross Region Restore](/azure/backup/backup-create-rs-vault#set-storage-redundancy) feature. You can use this feature to restore data in a secondary Azure paired region.
 
-The Azure Backup service provides a [framework](/azure/backup/backup-azure-linux-app-consistent) to achieve application consistency during backups of Windows and Linux VMs for various applications like Oracle, MySQL, Mongo DB, SAP HANA, and PostgreSQL: application-consistent snapshots. This framework involves invoking pre-scripts (to quiesce the applications) before taking a snapshot of disks. It calls post-scripts (commands to unfreeze the applications) after the snapshot is completed, to return the applications to the normal mode.
+The Azure Backup service provides a [framework](/azure/backup/backup-azure-linux-app-consistent) to achieve application consistency during backups of Windows and Linux VMs for various applications like Oracle, MySQL, Mongo DB, SAP HANA, and PostgreSQL: application-consistent snapshots. This framework involves invoking prescripts (to quiesce the applications) before taking a snapshot of disks. It calls postscripts (commands to unfreeze the applications) after the snapshot is completed, to return the applications to the normal mode.
 
-Although you can find sample pre-scripts and post-scripts on GitHub, you're responsible for creating and maintaining these scripts. In the case of Oracle, the database must be in archive log mode to allow online backups. You must create and maintain the appropriate database beginning and ending backup commands that are run in the pre-scripts and post-scripts.
+Although you can find sample prescripts and postscripts on GitHub, you're responsible for creating and maintaining these scripts. For Oracle, the database must be in archive log mode to allow online backups. You must create and maintain the appropriate database beginning and ending backup commands that are run in the prescripts and postscripts.
 
-Azure Backup provides an [enhanced pre-script and post-script framework](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) in which it provides packaged pre-scripts and post-scripts for selected applications. You just name the application, and then Azure Backup automatically invokes the relevant pre-scripts and post-scripts. Microsoft manages the packaged pre-scripts and post-scripts, so you can be assured of the support, ownership, and validity of these scripts.
+Azure Backup provides an [enhanced pre-script and post-script framework](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) in which it provides packaged prescripts and postscripts for selected applications. You just name the application, and then Azure Backup automatically invokes the relevant prescripts and postscripts. Microsoft manages the packaged prescripts and postscripts, so you can be assured of the support, ownership, and validity of these scripts.
 
 Currently, the supported applications for the enhanced framework are Oracle 12.1 or later and MySQL. The snapshot is a full copy of the storage and not an incremental or copy-on-write snapshot, so it's an effective medium to restore your database from.
 
@@ -160,7 +160,7 @@ You can use RMAN incremental backup to reduce backup sizes. This approach might 
 
 We recommend using Azure services that provide snapshot capabilities, such as Azure Backup or Azure NetApp Files, for VLDBs. Application-consistent snapshots, where the databases are automatically placed in and out of backup mode, take only seconds to create regardless of the size of the database.
 
-Your backup strategy might be also tied to the overall storage solution that the organization uses for Oracle Database. Database workloads that have extreme I/O throughput often use Azure NetApp Files or third-party Azure Marketplace solutions such as Silk to underpin the database storage throughput and IOPS requirements. These solutions also provide application-consistent snapshots for fast database backup and restore operations.
+Your backup strategy might be also tied to the overall storage solution that the organization uses for Oracle Database. Database workloads that have extreme I/O throughput often use Azure NetApp Files or non-Microsoft Azure Marketplace solutions such as Silk to underpin the database storage throughput and IOPS requirements. These solutions also provide application-consistent snapshots for fast database backup and restore operations.
 
 ## Next steps
 

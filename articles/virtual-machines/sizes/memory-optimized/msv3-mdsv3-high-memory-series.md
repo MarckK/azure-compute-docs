@@ -9,14 +9,14 @@ author: leebanhassen
 ms.author: leebanhassen
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date:  08/23/2024
+ms.date:  10/15/2024
 ---
 
 # Msv3 and Mdsv3 High Memory series
 
 
 
-The Msv3 and Mdsv3 High Memory (HM) Virtual Machine (VM) series, powered by Intel® Xeon® Platinum 8490H (Sapphire Rapids) processor with an all core base frequency of 1.9 GHz and 3.5 GHz single core turbo frequency, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to the previous generation, Mv2-series VMs. Mv3 HM offers VM sizes with memory ranging from 6TB to 16TB, up to 8,000 MBps throughout to remote storage, and up to 25% networking performance improvements over previous generations.
+The Msv3 and Mdsv3 High Memory (HM) Virtual Machine (VM) series are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to the previous generation, Mv2-series VMs. Mv3 HM offers VM sizes with memory ranging from 6TB to 16TB, up to 8,000 MBps throughout to remote storage, and up to 25% networking performance improvements over previous generations.
 
 ## Msv3 High Memory series
 

@@ -5,8 +5,8 @@ author: jjaygbay1
 ms.service: oracle-on-azure
 ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
-ms.topic: article
-ms.date: 03/23/2023
+ms.topic: how-to
+ms.date: 10/01/2024
 ms.author: jacobjaygbay
 ---
 
@@ -14,7 +14,7 @@ ms.author: jacobjaygbay
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This article describes how to use the Azure CLI to deploy an Oracle Database 19c Release 3 database from the Azure Marketplace image. This article then shows you, step by step, how to install and configure Data Guard on an Azure virtual machine (VM). To help secure the environment, no ports will be publicly accessible and an Azure Bastion instance will provide access to the Oracle VMs.
+You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This article describes how to use the Azure CLI to deploy an Oracle Database 19c Release 3 database from the Azure Marketplace image. This article then shows you, step by step, how to install and configure Data Guard on an Azure virtual machine (VM). To help secure the environment, no ports will be publicly accessible and an Azure Bastion instance provides access to the Oracle VMs.
 
 Before you start, make sure that the Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
@@ -73,7 +73,7 @@ az group create \
 
 ### Create a virtual network with two subnets
 
-Create a virtual network where you'll connect all compute services. One subnet will host Azure Bastion, an Azure service that helps protect your databases from public access. The second subnet will host the two Oracle database VMs.
+Create a virtual network where you connect all compute services. One subnet hosts Azure Bastion, an Azure service that helps protect your databases from public access. The second subnet hosts the two Oracle database VMs.
 
 Also, create a network security group that all services will reference to determine what ports are publicly exposed. Only port 443 will be exposed. The Azure Bastion service will open this port automatically when you create that service instance.
 
@@ -178,7 +178,7 @@ az network bastion create \
 
 ### Connect to the virtual machine
 
-Now, you'll access `OracleVM1` by using the Azure Bastion service from the [Azure portal](https://portal.azure.com).
+Now, you can access `OracleVM1` by using the Azure Bastion service from the [Azure portal](https://portal.azure.com).
 
 In the search box at the top of the window, enter **OracleVM1**. In the list of results, select **OracleVM1** to open that VM.
 
@@ -316,7 +316,7 @@ SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
 
-Enable force logging, and make sure that at least one log file is present:
+Enable force logging, and make sure at least one log file is present:
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
@@ -332,7 +332,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/cdb1/standby_redo03.lo
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/cdb1/standby_redo04.log') SIZE 200M;
 ```
 
-Turn on Flashback (which makes recovery a lot easier) and set `STANDBY_FILE_MANAGEMENT` to `AUTO`. Exit SQL*Plus after that.
+Turn on Flashback (which makes recovery a lot easier) and set `STANDBY_FILE_MANAGEMENT` to `AUTO`, then exit SQL*Plus after that.
 
 ```bash
 SQL> ALTER SYSTEM SET db_recovery_file_dest_size=50G scope=both sid='*';
@@ -602,7 +602,7 @@ SQL> EXIT;
 
 ### Configure Data Guard Broker on OracleVM1 (primary)
 
-Start Data Guard Manager and log in by using SYS and a password. (Don't use OS authentication.)
+Start Data Guard Manager and sign in by using SYS and a password. (Don't use OS authentication.)
 
 ```bash
 $ dgmgrl sys/OracleLab123@cdb1
@@ -632,7 +632,7 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-You've completed the Oracle Data Guard setup. The next section shows you how to test the connectivity and switch over.
+You completed the Oracle Data Guard setup. The next section shows you how to test the connectivity and switch over.
 
 ### Connect the database from the client machine
 
@@ -750,7 +750,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-You've finished the installation and configuration of Data Guard on Oracle Linux.
+You finished the installation and configuration of Data Guard on Oracle Linux.
 
 ## Delete the virtual machine
 

@@ -12,9 +12,9 @@ ms.custom: include file
 ---
 | Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor      | 4 - 28 vCPUs       | AMD EPYC 9374 F (Genoa) [x86-64]                               |
+| Processor      | 4 - 28 vCPUs       | AMD EPYC 9V64 F (Genoa) [x86-64]                               |
 | Memory         | 16 - 160 GiB          |                                  |
 | Local Storage  | 2 - 14 Disks           | 256 - 1536 GiB <br> IOPS (RR) <br> MBps (RR)                               |
 | Remote Storage | 2 - 14 Disks    | 7600 - 5320 IOPS <br>180 - 1260 MBps   |
 | Network        | 2 - 8 NICs          | 3300 - 20000 Mbps                          |
-| Accelerators   | None              |                                   |
+| Accelerators   | 1/6 - 1              |                AMD Radeon™ Pro V710                   |

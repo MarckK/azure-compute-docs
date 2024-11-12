@@ -1,7 +1,7 @@
 ---
 title: Use Azure Policy to restrict VM extension installation (Windows)
 description: Use Azure Policy to restrict extension deployments.
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta

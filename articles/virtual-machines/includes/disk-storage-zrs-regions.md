@@ -34,6 +34,7 @@ ZRS disks are currently available in the following regions:
 - Switzerland North
 - UAE North
 - UK South
+- Central US
 - East US
 - East US 2
 - South Central US

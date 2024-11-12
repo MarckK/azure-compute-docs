@@ -5,8 +5,8 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: oracle-on-azure
 ms.collection: oracle
-ms.topic: article
-ms.date: 08/23/2023
+ms.topic: concept-article
+ms.date: 10/02/2024
 ---
 
 # Architectures for Oracle applications with database on Azure Virtual Machines
@@ -29,7 +29,7 @@ The provided network settings for Oracle Applications on Azure cover various asp
 - Azure Firewall: If necessary, you can configure [Azure Firewall](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall) in front of your application for added security. Azure Firewall helps protect your resources from unauthorized access and threats.
 - Application Gateway for External Users: When external users need to access your application, consider using [Azure Application Gateway](/azure/application-gateway/overview). It supplies Web Application Firewall (WAF) capabilities for protecting your web applications and Layer 7 load balancing to distribute traffic.
 - Network Security Groups (NSG): Secure your subnets by using [Network Security Groups (NSG)](/azure/virtual-network/network-security-groups-overview). NSGs allow you to control inbound and outbound traffic to network interfaces, Virtual Machines, and subnets by defining security rules.
-- Role-Based Access Control (RBAC): To grant access to specific individuals or roles, use Azure Role-Based Access Control (RBAC). [RBAC](/azure/role-based-access-control/overview) provides fine-grained access control to Azure resources based on roles and permissions.
+- Role-based access control (RBAC): To grant access to specific individuals or roles, use Azure RBAC. [RBAC](/azure/role-based-access-control/overview) provides fine-grained access control to Azure resources based on roles and permissions.
 - Bastion Host for SSH Access: Use a [Bastion host](/azure/bastion/bastion-overview) as a jump box to enhance security for SSH access. A Bastion host acts as a secure gateway for administrators to access Virtual Machines in the virtual network. This host provides an added layer of security.
 - More considerations:
   - Data Encryption: Ensure that data at rest and in transit is encrypted. Azure provides tools like Azure Disk Encryption and SSL/TLS for this purpose.
@@ -53,7 +53,7 @@ Load Balancing and Throughput: It's important to evaluate the workload character
 
 Database Tier: HA architectures are recommended with Oracle Data Guard for Oracle on Azure IaaS. Applications require specific type of HA setup and are listed under each application.
 
-Backup - [Backups](/azure/backup/backup-azure-vms-introduction) are sent from the application tier and the database tier. It's just one of many reasons why those two tiers shouldn't be separated into two different vendors.  Backups of the database are performed by [Azure Backup Volume Snapshot](https://techcommunity.microsoft.com/t5/data-architecture-blog/azure-backup-volume-snapshots-for-oracle-is-now-ga/ba-p/2820032) on Premium Files to the secondary region.
+Backup - [Backups](/azure/backup/backup-azure-vms-introduction) are sent from the application tier and the database tier. It's just one of many reasons why those two tiers shouldn't be separated into two different vendors. Backups of the database are performed by [Azure Backup Volume Snapshot](https://techcommunity.microsoft.com/t5/data-architecture-blog/azure-backup-volume-snapshots-for-oracle-is-now-ga/ba-p/2820032) on Premium Files to the secondary region.
 
 Disaster Recovery - There are different solutions you can choose from. It very much depends on your requirements. The architecture is built to be highly available. For replicating the application tier, you can use [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). Another solution you can choose is [Redundancy options for managed disks.](../../../virtual-machines/disks-redundancy.md) Both solutions replicate your data. Redundancy options for managed disks are a solution that can simplify the architecture but also comes with a few limitations.
 
@@ -74,7 +74,7 @@ Here's the recommended architecture of a Siebel application deployment on Azure 
 
 ### Oracle Siebel design considerations
 
-- Network & Security:  The network settings for Oracle Siebel on Azure required to follow the general network & security considerations, additionally. 
+- Network & Security: The network settings for Oracle Siebel on Azure required to follow the general network & security considerations, additionally. 
 
 - Migration must be done using Siebel Tool subnet.
 
@@ -84,12 +84,12 @@ Here's the recommended architecture of a Siebel application deployment on Azure 
 
 **Database Tier**
 
-- Ensure Database and Siebel version match.
-- Primary and replicated to a secondary using Data Guard based recommended [Oracle reference architecture](oracle-reference-architecture.md).
+- Ensure Database and Siebel versions match.
+- Ensure primary and replicated databases are copied to a secondary database using Oracle Data Guard [Oracle reference architecture](oracle-reference-architecture.md).
 
 ## E-Business suite on Azure
 
-Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain Management (SCM) and Customer Relationship Management (CRM). As EBS is an SCM and CRM system, it usually has many interfaces to third-party systems. The below architecture is built to be highly available within one region.
+Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain Management (SCM) and Customer Relationship Management (CRM). As EBS is an SCM and CRM system, it usually has many interfaces to third-party systems. The following architecture is built to be highly available within one region.
 
 We assume that external users don't cross the corporate network in the following diagram.
 
@@ -97,11 +97,11 @@ We assume that external users don't cross the corporate network in the following
 
 ### Oracle EBS design considerations 
 
-Database Tier - Primary & secondary database should be within one datacenter, the synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode.
+Database Tier - Primary & secondary database should be within one datacenter. The synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode.
 
 ## JD Edwards on Azure
 
-Oracle's JD Edwards is an integrated applications suite of comprehensive enterprise resource planning software. We have seen JDE used in Supply chain, Warehouse Management, Logistics, Manufacturing resource planning and more. Because of the use of the application, we see that interfaces to other systems are important as well.
+Oracle's JD Edwards is an integrated applications suite of comprehensive enterprise resource planning software. Currently JD Edwards is used in Supply chain, Warehouse Management, Logistics, Manufacturing resource planning, and more. Because of the use of the application, we see that interfaces to other systems are important as well.
 
 The following architecture is built to being highly available. We assumed that external users aren't accessing over the corporate network. If an external user accesses the application using corporate network, the architecture can be simplified on networking as follows.
 :::image type="content" source="media/oracle-database-architecture/on-premises-network-and-internal-users.png" alt-text="Diagram showing on-premises network and external users." lightbox="media/oracle-database-architecture/on-premises-network-and-internal-users.png":::
@@ -119,21 +119,21 @@ Database Tier - Primary and secondary stay within one datacenter, the synchronou
 
 ## PeopleSoft on Azure
 
-Oracle's PeopleSoft application suite contains software for human resources and financial management. The application suite is multi-tiered, and the applications include human resource management systems (HRMS), customer relationship management (CRM), financials and supply chain management (FSCM), and enterprise performance management (EPM).
+Oracle's PeopleSoft application suite contains software for human resources and financial management. The application suite is multi-tiered, and the applications include: human resource management systems (HRMS), customer relationship management (CRM), financials and supply chain management (FSCM), and enterprise performance management (EPM).
 
-:::image type="content" source="media/oracle-database-architecture/on-premises-network-and-internal-users-express-route.png" alt-text="Diagram showing on-premises network and internal users with expressroute." lightbox="media/oracle-database-architecture/on-premises-network-and-internal-users-express-route.png":::
+:::image type="content" source="media/oracle-database-architecture/on-premises-network-and-internal-users-express-route.png" alt-text="Diagram showing on-premises network and internal users with ExpressRoute." lightbox="media/oracle-database-architecture/on-premises-network-and-internal-users-express-route.png":::
 
 ### PeopleSoft design considerations
 
 Application Tier: The application tier contains several tasks and servers. It runs the business logic and processes but also maintains the connection to the database. As soon as this dependency is cut, it causes latencies.
 
-- Dependency between Application and Database Tiers: It's important to minimize latency between the application and database tiers. By placing the application and database-tier in the same cloud provider (Azure, in this case), you reduce network latency. Azure provides various networking options and services like Virtual Network (VNet) peering or ExpressRoute to ensure low-latency connections between tiers.
+- Dependency between Application and Database Tiers: It's important to minimize latency between the application and database tiers. By placing the application and database-tier in the same cloud provider (Azure, in this case), you reduce network latency. Azure provides various networking options and services like virtual network (VNet) peering or ExpressRoute to ensure low-latency connections between tiers.
 
 - Operating System Considerations: If the Process Scheduler specifically requires Windows operating systems, you can still run it on Azure Virtual Machines. Azure supports various Windows Server versions, allowing you to choose the one that meets your application's requirements.
 
-- Architecture Evaluation: Carefully evaluate your architecture requirements, including scalability, availability, and performance. Consider setting up multiple application server instances in a load-balanced configuration to ensure high availability and scalability.
+- Architecture Evaluation: Carefully evaluate your architecture requirements, including scalability, availability, and performance. To ensure high availability and scalability, consider setting up multiple application server instances in a load-balanced configuration.
 
-Database Tier - The primary and replicated to a secondary should stay within one datacenter, the synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode.
+Database Tier - The primary and replicated to a secondary should stay within one datacenter. The synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode.
 
 **Next steps**
  

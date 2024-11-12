@@ -20,6 +20,9 @@ You can use triggers in Azure Image Builder (AIB) to enable automatic image crea
 > [!NOTE]
 > Currently, we only support setting a trigger for a new source image, but we do expect to support different kinds of triggers in the future.
 
+> [!NOTE]
+> To prevent unnecessary build failures, automatic image creation via triggers will be deactivated if the image template build has failed multiple times consecutively (either manually or automatically triggered). You can still manually build the image template, and once a manual build succeeds, the automatic triggers will be reactivated.
+
 ## Prerequisites
 Before setting up your first trigger, ensure you're using Azure Image Builder API version **2022-07-01.**
 

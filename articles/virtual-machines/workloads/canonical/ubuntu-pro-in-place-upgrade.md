@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.custom: linux-related-content, devx-track-azurecli, linux-related-content
 ms.collection: linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 9/12/2023
 ms.author: anujmaurya
 ---

@@ -4,8 +4,8 @@ description: Learn how to migrate Oracle workloads to Azure VMs.
 author: suzuber
 ms.author: v-suzuber
 ms.service: oracle-on-azure
-ms.topic: article
-ms.date: 4/22/2024
+ms.topic: concept-article
+ms.date: 10/03/2024
 ---
 
 # Migrate Oracle workloads to Azure VMs  
@@ -42,7 +42,7 @@ After you set up Oracle on Azure infrastructure, install Oracle database, and mi
 Azure enhances the Oracle tools with the right network connectivity, bandwidth, and commands that are powered by the following Azure capabilities for data migration.
 
 - [VPN Connectivity](/azure/vpn-gateway/)
-- [Express Route](/azure/expressroute/expressroute-introduction)
+- [Express Route](/azure/expressroute/expressroute-introduction). Reliability of the ExpressRoute is the key. Refer to resiliency guidance for [Gateway](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/expressRouteGateways/) and [Circuits](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/expressRouteCircuits/).
 - [AzCopy](/azure/storage/common/storage-ref-azcopy)
 - [Data Box](/azure/databox/data-box-overview)
 
@@ -76,7 +76,7 @@ Scenario-5: Data Box - a unique scenario in which data is moved between the loca
 
 ## Cutover
 
-Now your data is migrated and Oracle database servers and applications are up and running. In this section, use the following steps to transition business operations running on premise over to newfound Oracle workload and applications on Azure IaaS.
+Now your data is migrated and Oracle database servers and applications are up and running. Use the following steps to transition business operations running on premise over to newfound Oracle workload and applications on Azure IaaS.
 
 1. Schedule a maintenance window to minimize disruption to users.
 2. Stop database activity on the source Oracle database.

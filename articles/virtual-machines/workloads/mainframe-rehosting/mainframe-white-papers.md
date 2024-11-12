@@ -7,7 +7,7 @@ ms.subservice: mainframe-rehosting
 author: johnjrayborn
 ms.author: johnray
 ms.date: 04/02/2019
-ms.topic: article
+ms.topic: concept-article
 ---
 # Azure white papers about mainframe topics
 

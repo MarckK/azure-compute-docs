@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.date: 07/25/2024

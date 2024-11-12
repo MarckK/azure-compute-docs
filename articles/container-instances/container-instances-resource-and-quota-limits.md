@@ -106,12 +106,12 @@ The following maximum resources are available to a container group deployed usin
 | :---: | :---: | :----: | :-----: | :-------: |
 | 4 | 16 | N/A | N/A | 50 | 
 
-## Confidential Container Resources (Preview)
+## Confidential Container Resources
 
-The following maximum resources are available to a container group deployed using [Confidential Containers](container-instances-confidential-overview.md) (preview). These maximums are hard limits and can't be increased.
+The following maximum resources are available to a container group deployed using [Confidential Containers](container-instances-confidential-overview.md). These maximums are hard limits and can't be increased.
 
 > [!NOTE]
-> Confidential Containers are only available in the following regions at this time: East US, North Europe, West Europe, and West US.
+> Confidential Containers are currently available in the following regions: Central India, East Asia, East US, Germany West Central, Italy North, Japan East, North Europe, Southeast Asia, Switzerland North, UAE North, West Europe, and West US.
 
 | Max CPU | Max Memory (GB) | Virtual network Max CPU | Virtual network Max Memory (GB) | Storage (GB) | 
 | :---: | :---: | :----: | :-----: | :-------: |
@@ -120,7 +120,7 @@ The following maximum resources are available to a container group deployed usin
 ## GPU Container Resources (Preview) 
 
 > [!IMPORTANT]
-> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](/azure/aks/aks-migration).
+> K80 and P100 GPU SKUs were retired on August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is recommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](/azure/aks/aks-migration).
 
 > [!NOTE]
 > Not all limit increase requests are guaranteed to be approved.

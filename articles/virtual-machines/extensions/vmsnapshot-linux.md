@@ -6,7 +6,7 @@ author: trinadhkotturu
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-linux
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 12/17/2018

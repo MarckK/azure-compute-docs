@@ -40,12 +40,12 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 | 1 | 736 |  |  |  |  |
-| Standard_NC12s_v3 | 1 | 1474 |  |  |  |  |
-| Standard_NC24s_v3 | 1 | 2948 |  |  |  |  |
-| Standard_NC24rs_v3 | 1 | 2948 |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NC6s_v3 | 1 | 736 |
+| Standard_NC12s_v3 | 1 | 1474 |
+| Standard_NC24s_v3 | 1 | 2948 |
+| Standard_NC24rs_v3 | 1 | 2948 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -62,12 +62,12 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 | 12 | 20000 | 200 |  |  |  |  |  |  |
-| Standard_NC12s_v3 | 24 | 40000 | 400 |  |  |  |  |  |  |
-| Standard_NC24s_v3 | 32 | 80000 | 800 |  |  |  |  |  |  |
-| Standard_NC24rs_v3 | 32 | 80000 | 800 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_NC6s_v3 | 12 | 20000 | 200 |
+| Standard_NC12s_v3 | 24 | 40000 | 400 |
+| Standard_NC24s_v3 | 32 | 80000 | 800 |
+| Standard_NC24rs_v3 | 32 | 80000 | 800 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -87,12 +87,12 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
-| --- | --- | --- |
-| Standard_NC6s_v3 | 4 |  |
-| Standard_NC12s_v3 | 8 |  |
-| Standard_NC24s_v3 | 8 |  |
-| Standard_NC24rs_v3 | 8 |  |
+| Size Name | Max NICs (Qty.) |
+| --- | --- |
+| Standard_NC6s_v3 | 4 |
+| Standard_NC12s_v3 | 8 |
+| Standard_NC24s_v3 | 8 |
+| Standard_NC24rs_v3 | 8 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)

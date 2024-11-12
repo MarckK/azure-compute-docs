@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-ZRS for managed disks is only supported with Premium SSD and Standard SSD managed disks. ZRS for managed disks isn't supported with Premium SSD v2 managed disks. Force detach (preview) currently only supports data disks.
+ZRS for managed disks is only supported with Premium SSD and Standard SSD managed disks. ZRS for managed disks isn't supported with Premium SSD v2 managed disks. Force detach only supports data disks.

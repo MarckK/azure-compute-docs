@@ -564,10 +564,6 @@ Results:
 }
 ```
 
-```bash
-echo "Your MySQL user $MY_MYSQL_ADMIN_USERNAME password is: $MY_WP_ADMIN_PW"
-```
-
 The server created has the below attributes:
 
 * The server name, admin username, admin password, resource group name, location are already specified in local context environment of the cloud shell. They're created in the same location as your resource group and other Azure components.

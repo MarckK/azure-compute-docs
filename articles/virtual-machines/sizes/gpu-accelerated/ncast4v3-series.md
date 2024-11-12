@@ -40,12 +40,12 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_T4_v3 | 1 | 176 |  |  |  |  |
-| Standard_NC8as_T4_v3 | 1 | 352 |  |  |  |  |
-| Standard_NC16as_T4_v3 | 1 | 352 |  |  |  |  |
-| Standard_NC64as_T4_v3 | 1 | 2816 |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NC4as_T4_v3 | 1 | 176 |
+| Standard_NC8as_T4_v3 | 1 | 352 |
+| Standard_NC16as_T4_v3 | 1 | 352 |
+| Standard_NC64as_T4_v3 | 1 | 2816 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -62,12 +62,12 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_T4_v3 | 8 |  |  |  |  |  |  |  |  |
-| Standard_NC8as_T4_v3 | 16 |  |  |  |  |  |  |  |  |
-| Standard_NC16as_T4_v3 | 32 |  |  |  |  |  |  |  |  |
-| Standard_NC64as_T4_v3 | 32 |  |  |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) |
+| --- | --- |
+| Standard_NC4as_T4_v3 | 8 |
+| Standard_NC8as_T4_v3 | 16 |
+| Standard_NC16as_T4_v3 | 32 |
+| Standard_NC64as_T4_v3 | 32 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)

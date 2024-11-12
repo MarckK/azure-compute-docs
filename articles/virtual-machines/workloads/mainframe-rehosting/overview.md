@@ -8,7 +8,7 @@ manager: edprice
 editor: edprice
 ms.author: johnray
 ms.date: 04/02/2019
-ms.topic: article
+ms.topic: concept-article
 ---
 
 # Mainframe rehosting on Azure virtual machines

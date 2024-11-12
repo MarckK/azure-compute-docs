@@ -3,7 +3,7 @@ title: What's new in Azure Disk Storage
 description: Learn about new features and enhancements in Azure Disk Storage.   
 author: roygara
 ms.author: rogarana
-ms.date: 01/22/2024
+ms.date: 11/11/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -17,6 +17,10 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 - [What's new in 2024](#whats-new-in-2024)
 
+  - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
+    - [Generally available: Convert existing disks to Premium SSD v2 disks](#generally-available-convert-existing-disks-to-premium-ssd-v2-disks)
+    - [Generally available: Expand Ultra Disks and Premium SSD v2 without downtime](#generally-available-expand-ultra-disks-and-premium-ssd-v2-without-downtime)
+    - [Expanded regional availability for Premium SSD v2](#expanded-regional-availability-for-premium-ssd-v2)
   - [Quarter 2 (April, May, June)](#quarter-2-april-may-june)
     - [Generally available: New Property for Disks-LastOwnershipUpdateTime](#generally-available-new-property-for-disks-lastownershipupdatetime)
   - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
@@ -48,17 +52,31 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 ## What's new in 2024
 
+### Quarter 4 (October, November, December)
+
+#### Generally available: Convert existing disks to Premium SSD v2 disks
+
+Directly converting a disk to a Premium SSD v2 disk is [generally available](https://azure.microsoft.com/updates/v2/Convert-to-Azure-Premium-SSD-v2-disks). Making it easier to move your workloads from Standard HDD, Standard SSD, and Premium Disks, to Premium SSD v2 disks, and take advantage of its balance of price and performance capabilities. To learn more, see [Convert Premium SSD v2 disks](disks-convert-types.md#convert-premium-ssd-v2-disks).
+
+#### Generally available: Expand Ultra Disks and Premium SSD v2 without downtime
+
+Expanding Ultra Disks and Premium SSD v2 disks without downtime is [generally available](https://azure.microsoft.com/updates/v2/Live-Resize-for-Azure-Premium-SSD-v2-and-Ultra-Disks1). This allows you to dynamically increase the capacity of your storage without causing disruptions to existing applications. To learn more, see the [Windows](windows/expand-os-disk.md#expand-without-downtime) or [Linux](linux/expand-disks.md#expand-without-downtime) articles.
+
+#### Expanded regional availability for Premium SSD v2
+
+Premium SSD v2 disks were made available in Germany West Central, Israel Central, Italy North, Spain Central, Mexico Central regions. For more information, see the [Azure Update](https://azure.microsoft.com/updates/v2/generally-available-azure-premium-ssd-v2-disk-storage-is-now-available-in-more-regions).
+
 ### Quarter 2 (April, May, June)
 
 #### Generally Available: New Property for Disks-LastOwnershipUpdateTime
 
-We are excited to introduce a new property for disks in the Azure Portal, Azure PowerShell module, and Azure CLI. This property, `LastOwnershipUpdateTime`, reflects the time when a disk’s state was last changed. This property can be used with the `diskState` to identify the current state of a disk, and when it was last updated. For more information, see the [Azure Update](https://azure.microsoft.com/updates/ga-new-property-for-diskslastownershipupdatetime/) or [the documentation.](/azure/virtual-machines/windows/find-unattached-disks)
+The `LastOwnershipUpdateTime` property is now available for disks in the Azure portal, Azure PowerShell module, and Azure CLI. This property reflects the time when a disk’s state was last changed. This property can be used with the `diskState` to identify the current state of a disk, and when it was last updated. To learn more, see the [Azure Update](https://azure.microsoft.com/updates/ga-new-property-for-diskslastownershipupdatetime/) post or [the documentation.](/azure/virtual-machines/windows/find-unattached-disks)
 
 ### Quarter 1 (January, February, March)
 
 #### Generally available: Azure VM Backup Support for Ultra Disks and Premium SSD v2
 
-Azure Backup enabled support on Azure VMs using Ultra Disks and Premium SSD v2 that offers high throughput, high IOPS, and low latency. Azure VM Backup support allows you to ensure business continuity for your virtual machines and to recover from any disasters or ransomware attacks. Enabling backup on VMs using Ultra Disks and Premium SSD v2 is available in all regions where creation of Ultra disks and Premium SSD v2 are supported. To learn more, refer to the [documentation](/azure/backup/backup-support-matrix-iaas#vm-storage-support) and enable backup on your Azure VMs. 
+Azure Backup enabled support on Azure VMs using Ultra Disks and Premium SSD v2 that offers high throughput, high IOPS, and low latency. Azure VM Backup support allows you to ensure business continuity for your virtual machines and to recover from any disasters or ransomware attacks. Enabling backup on VMs using Ultra Disks and Premium SSD v2 is available in all regions where Ultra disks and Premium SSD v2 disks are supported. To learn more, refer to the [documentation](/azure/backup/backup-support-matrix-iaas#vm-storage-support) and enable backup on your Azure VMs. 
 
 
 #### Generally available: Trusted launch support for Ultra Disks and Premium SSD v2

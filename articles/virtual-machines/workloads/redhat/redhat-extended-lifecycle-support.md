@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: linux-related-content, references_regions
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/12/2024
 ms.author: arukum
 

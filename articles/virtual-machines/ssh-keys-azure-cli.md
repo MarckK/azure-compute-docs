@@ -5,7 +5,7 @@ author: ju-shim
 ms.collection: linux
 ms.service: azure-virtual-machines
 ms.custom: devx-track-azurecli, linux-related-content
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/13/2023
 ms.author: jushiman
 ---
@@ -22,9 +22,6 @@ For more information, see [Detailed steps: Create and manage SSH keys for authen
 
 For more information on how to create and use SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
-> [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
-
 ## Generate new keys
 
 1. After you sign in, use the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command to create the new SSH key:
@@ -32,6 +29,10 @@ For more information on how to create and use SSH keys with Linux VMs, see [Use 
     ```azurecli
     az sshkey create --name "mySSHKey" --resource-group "myResourceGroup"
    ```
+
+    > [!NOTE]
+    > This command would default to key type of RSA, in order to generate ED25519 keys you can pass in the optional flag `--encryption-type Ed25519`.
+
 
 1. The resulting output lists the new key files' paths:
 

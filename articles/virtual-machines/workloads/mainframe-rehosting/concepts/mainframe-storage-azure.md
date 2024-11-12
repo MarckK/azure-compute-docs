@@ -4,7 +4,7 @@ description: Massively scalable Azure storage resources can help mainframe-based
 author: johnjrayborn
 ms.author: johnray
 ms.date: 04/02/2019
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 ---

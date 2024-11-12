@@ -8,7 +8,7 @@ ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.collection: windows
-ms.topic: article
+ms.topic: concept-article
 ms.date: 03/09/2023
 ms.author: trinadhk
 ---

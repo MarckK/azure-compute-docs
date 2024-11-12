@@ -25,7 +25,8 @@ The following table summarizes the support matrix for VM restore points.
 **VMs using Ephemeral OS Disks** | No. Exclude these disks and create a VM restore point.
 **VMs using shared disks** | No. Exclude these disks and create a VM restore point.
 **VMs with extensions** | Yes
-**VMs with trusted launch** | Yes
+**VMs with trusted launch OS disk** | Yes
+**Data disks restored from Trusted launch enabled OS Disk** | No
 **Confidential VMs** | No
 **Generation 2 VMs (UEFI boot)** | Yes
 **VMs with NVMe disks (Storage optimized - Lsv2-series)** | Yes
@@ -46,12 +47,13 @@ The following table summarizes the support matrix for VM restore points.
 **VMs with standard SSDs** | Yes
 **VMs with premium SSDs** | Yes
 **VMs with ZRS disks** | Yes
-**VMs with server-side encryption using service-managed keys** | Yes
-**VMs with server-side encryption using customer-managed keys** | Yes
-**VMs with double encryption at rest** | Yes
-**VMs with Host based encryption enabled with PMK/CMK/Double encryption** | Yes
-**VMs with ADE (Azure Disk Encryption)** | Yes
+**VMs with server-side encryption using service-managed keys** | Yes. The encryption of source disk will not be enabled on the restore point.
+**VMs with server-side encryption using customer-managed keys** | Yes. The encryption of source disk will not be enabled on the restore point.
+**VMs with double encryption at rest** | Yes. The encryption of source disk will not be enabled on the restore point.
+**VMs with Host based encryption enabled with PMK/CMK/Double encryption** | Yes. The encryption of source disk will not be enabled on the restore point.
+**VMs with ADE (Azure Disk Encryption)** | Yes. The encryption of source disk will not be enabled on the restore point.
 **VMs using Accelerated Networking** | Yes
+**Azure [Boost](/azure/azure-boost/overview) compatible Virtual machine sizes** | Yes
 **Minimum Frequency at which App consistent restore point can be taken** | 3 hours
 **Minimum Frequency at which crash consistent restore points can be taken** | 1 hour
 **API version for Application consistent restore point** | 2021-03-01 or later
@@ -98,10 +100,11 @@ For Azure VM Linux VMs, restore points support the list of Linux [distributions 
 - Restore points APIs require an API of version 2021-03-01 or later for crash consistency.
 - A maximum of 10,000 restore point collections can be retained at per subscription per region level.
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections.
-- Concurrent creation of restore points for a VM isn't supported. 
-- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions isn't supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions won't update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
+- Concurrent creation of restore points for a VM isn't supported.
+- Movement of virtual machines between resource groups or subscriptions is supported when VM has restore points. New restore point creation will fail on the previous VM as the VM no longer exists after the movement. You need to clean up the restore point collection and restore points of the old VM if no longer needed.
+
  > [!Note]
- > Public preview of cross-region creation and copying of VM restore points is available, with the following limitations: 
+ > Public preview of cross-region copy of VM restore points is available, with the following limitations: 
  > - Private links aren't supported when copying restore points across regions or creating restore points in a region other than the source VM. 
  > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
  > - No portal support for cross region copy and cross region creation of restore points

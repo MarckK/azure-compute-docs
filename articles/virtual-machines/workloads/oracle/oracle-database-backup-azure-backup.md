@@ -5,8 +5,8 @@ author: cro27
 ms.service: oracle-on-azure
 ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
-ms.topic: article
-ms.date: 01/28/2021
+ms.topic: how-to
+ms.date: 10/02/2024
 ms.author: cholse
 ms.reviewer: jjaygbay1
 ---
@@ -88,7 +88,7 @@ Perform the following steps for each database on the VM:
     sudo su - oracle
     ```
 
-1. Set the environment variable `ORACLE_SID` by running the `oraenv` script. It will prompt you to enter the `ORACLE_SID` name.
+1. Set the environment variable `ORACLE_SID` by running the `oraenv` script. It prompts you to enter the `ORACLE_SID` name.
 
     ```bash
     . oraenv
@@ -96,7 +96,7 @@ Perform the following steps for each database on the VM:
 
 1. Add the Azure file share as another destination for database archive log files.
 
-    This step assumes that you configured and mounted an Azure file share on the Linux VM. For each database installed on the VM, make a subdirectory that's named after your database security identifier (SID).
+    This step assumes that you configured and mounted an Azure file share on the Linux VM. For each database installed on the VM, make a subdirectory named after your database security identifier (SID).
 
     In this example, the mount point name is `/backup` and the SID is `oratest1`. So you create the subdirectory `/backup/oratest1` and change ownership to the `oracle` user. Substitute `/backup/SID` for your mount point name and database SID.
 
@@ -125,9 +125,9 @@ Perform the following steps for each database on the VM:
 
 1. Define the recovery point objective (RPO) for the database.
 
-    To achieve a consistent RPO, consider the frequency at which the online redo log files will be archived. These factors control the frequency:
+    To achieve a consistent RPO, consider the frequency at which the online redo log files get archived. These factors control the frequency:
 
-    * The size of the online redo log files. As an online log file becomes full, it's switched and archived. The larger the online log file, the longer it takes to fill up. The added time decreases the frequency of archive generation.
+    * The size of the online redo log files. As an online log file becomes full, it gets switched and archived. The larger the online log file, the longer it takes to fill up. The added time decreases the frequency of archive generation.
     * The setting of the `ARCHIVE_LAG_TARGET` parameter controls the maximum number of seconds permitted before the current online log file must be switched and archived.
 
     To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo log files generally have a large size (for example, 1,024M, 4,096M, or 8,192M). In a busy database environment, logs are still likely to switch and archive every few seconds or minutes. In a less active database, they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency.
@@ -193,19 +193,19 @@ To use Azure Backup to back up the database, complete these steps:
 
 ### Understand the Azure Backup framework
 
-The Azure Backup service provides a [framework](/azure/backup/backup-azure-linux-app-consistent) to achieve application consistency during backups of Windows and Linux VMs for various applications. This framework involves invoking a pre-script to quiesce the applications before taking a snapshot of disks. It calls a post-script to unfreeze the applications after the snapshot is completed.
+The Azure Backup service provides a [framework](/azure/backup/backup-azure-linux-app-consistent) to achieve application consistency during backups of Windows and Linux VMs for various applications. This framework involves invoking a prescript to quiesce the applications before taking a snapshot of disks. It calls a postscript to unfreeze the applications after the snapshot is completed.
 
-Microsoft has enhanced the framework so that the Azure Backup service provides packaged pre-scripts and post-scripts for selected applications. These pre-scripts and post-scripts are already loaded on the Linux image, so there's nothing for you to install. You just name the application, and then Azure Backup automatically invokes the relevant scripts. Microsoft manages the packaged pre-scripts and post-scripts, so you can be assured of the support, ownership, and validity of them.
+Microsoft has enhanced the framework so that the Azure Backup service provides packaged prescripts and postscripts for selected applications. These prescripts and postscripts are already loaded on the Linux image, so there's nothing for you to install. You just name the application, and then Azure Backup automatically invokes the relevant scripts. Microsoft manages the packaged prescripts and postscripts, so you can be assured of the support, ownership, and validity of them.
 
 Currently, the supported applications for the enhanced framework are Oracle 12.x or later and MySQL. For details, see [Support matrix for managed Azure VM backups](/azure/backup/backup-support-matrix-iaas).
 
 You can author your own scripts for Azure Backup to use with pre-12.x databases. Example scripts are available on [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts).
 
-Each time you do a backup, the enhanced framework runs the pre-scripts and post-scripts on all Oracle Database instances installed on the VM. The `configuration_path` parameter in the *workload.conf* file points to the location of the Oracle */etc/oratab* file (or a user-defined file that follows the oratab syntax). For details, see [Set up application-consistent backups](#set-up-application-consistent-backups).
+Each time you do a backup, the enhanced framework runs the prescripts and postscripts on all Oracle Database instances installed on the VM. The `configuration_path` parameter in the *workload.conf* file points to the location of the Oracle */etc/oratab* file (or a user-defined file that follows the oratab syntax). For details, see [Set up application-consistent backups](#set-up-application-consistent-backups).
 
-Azure Backup runs the pre-scripts and post-scripts for each database listed in the file that `configuration_path` points to. Exceptions are lines that begin with `#` (treated as comment) or `+ASM` (an Oracle ASM instance).
+Azure Backup runs the prescripts and postscripts for each database listed in the file that `configuration_path` points to. Exceptions are lines that begin with `#` (treated as comment) or `+ASM` (an Oracle ASM instance).
 
-The Azure Backup enhanced framework takes online backups of Oracle Database instances that operate in `ARCHIVELOG` mode. The pre-scripts and post-scripts use the `ALTER DATABASE BEGIN` and `END BACKUP` commands to achieve application consistency.
+The Azure Backup enhanced framework takes online backups of Oracle Database instances that operate in `ARCHIVELOG` mode. The prescripts and postscripts use the `ALTER DATABASE BEGIN` and `END BACKUP` commands to achieve application consistency.
 
 For the database backup to be consistent, databases in `NOARCHIVELOG` mode must be shut down cleanly before the snapshot starts.
 
@@ -275,7 +275,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
 
    Perform the following steps for each database installed on the VM:
 
-   1. Log in to the database by using SQL Plus, and check the default settings for external authentication:
+   1. Sign in to the database by using SQL Plus, and check the default settings for external authentication:
 
       ```bash
       sqlplus / as sysdba
@@ -362,7 +362,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
 
    The *workload.conf* file uses the following format:
 
-   * The `workload_name` parameter indicates the database workload type. In this case, setting the parameter to `Oracle` allows Azure Backup to run the correct pre-scripts and post-scripts (consistency commands) for Oracle Database instances.
+   * The `workload_name` parameter indicates the database workload type. In this case, setting the parameter to `Oracle` allows Azure Backup to run the correct prescripts and postscripts (consistency commands) for Oracle Database instances.
    * The `timeout` parameter indicates the maximum time, in seconds, that each database must complete storage snapshots.
    * The `linux_user` parameter indicates the Linux user account that Azure Backup uses to run database quiesce operations. You created this user, `azbackup`, previously.
    * The `configuration_path` parameter indicates the absolute path name for a text file on the VM. Each line lists a database instance running on the VM. This is typically the */etc/oratab* file that Oracle generates during database installation, but it can be any file with any name that you choose. It must follow these format rules:
@@ -411,7 +411,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
 
     ![Screenshot that shows detailed status information for a backup job.](./media/oracle-backup-recovery/recovery-service-05.png)
 
-    Although it takes only seconds to execute the snapshot, it can take some time to transfer it to the vault. The backup job is not completed until the transfer is finished.
+    Although it takes seconds to execute the snapshot, it can take more time to transfer it to the vault. The backup job isn't completed until the transfer is finished.
 
 1. For an application-consistent backup, address any errors in the log file at */var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/extension.log*.
 
@@ -678,7 +678,7 @@ After the VM is restored, you should reassign the original IP address to the new
 
 # [Portal](#tab/azure-portal)
 
-1. In the Azure portal, go to your virtual machine named **vmoracle19c**. It has been assigned a new public IP and NIC similar to **vmoracle19c-nic-XXXXXXXXXXXX**, but it doesn't have a DNS address. When the original VM was deleted, its public IP and NIC were retained. The next steps reattach them to the new VM.
+1. In the Azure portal, go to your virtual machine named **vmoracle19c**. It gets assigned a new public IP and NIC similar to **vmoracle19c-nic-XXXXXXXXXXXX**, but it doesn't have a DNS address. When the original VM was deleted, its public IP and NIC were retained. The next steps reattach them to the new VM.
 
     ![Screenshot that shows a list of public IP addresses.](./media/oracle-backup-recovery/create-ip-01.png)
 
@@ -728,7 +728,7 @@ After the VM is restored, you should reassign the original IP address to the new
    }
    ```
 
-1. Attach the original NIC, which should have a name of `<VMName>VMNic`. In this case, it's `vmoracle19cVMNic`. The original public IP address is still attached to this NIC and will be restored to the VM when the NIC is reattached.
+1. Attach the original NIC, which should have a name of `<VMName>VMNic`. In this case, it's `vmoracle19cVMNic`. The original public IP address is still attached to this NIC and is restored to the VM when the NIC is reattached.
 
    ```azurecli
    az vm nic add --nics vmoracle19cVMNic --resource-group rg-oracle --vm-name vmoracle19c
@@ -759,9 +759,9 @@ To recover a database after a complete VM restore:
 
    ```
 
-   When the whole VM has been restored, it's important to recover the databases on the VM by performing the following steps on each database.
+   When the whole VM gets restored, it's important to recover the databases on the VM by performing the following steps on each database.
 
-1. You might find that the instance is running, because the autostart attempted to start the database on VM startup. However, the database requires recovery and is likely to be at the mount stage only. Run a preparatory shutdown before starting the mount stage:
+1. You might find that the instance is running, because the autostart attempted to start the database on VM startup. However, the database requires recovery and is likely to solely be at the mount stage. Run a preparatory shutdown before starting the mount stage:
 
     ```bash
     sudo su - oracle
@@ -772,7 +772,7 @@ To recover a database after a complete VM restore:
 
 1. Perform database recovery.
 
-   It's important to specify the `USING BACKUP CONTROLFILE` syntax to inform the `RECOVER AUTOMATIC DATABASE` command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file.
+   It's important to specify the `USING BACKUP CONTROLFILE` syntax to inform the `RECOVER AUTOMATIC DATABASE` command that recovery shouldn't stop at the Oracle system change number (SCN) recorded in the restored database control file.
 
    The restored database control file was a snapshot, along with the rest of the database. The SCN stored within it is from the point in time of the snapshot. There might be transactions recorded after this point, and you want to recover to the point of the last transaction committed to the database.
 
@@ -780,7 +780,7 @@ To recover a database after a complete VM restore:
    SQL> recover automatic database using backup controlfile until cancel;
    ```
 
-1. When the last available archive log file has been applied, enter `CANCEL` to end recovery.
+1. When the last available archive log file gets applied, enter `CANCEL` to end recovery.
 
    When recovery finishes successfully, the message `Media recovery complete` appears.
 
@@ -811,7 +811,7 @@ To recover a database after a complete VM restore:
 
 1. Open the database.
 
-   The `RESETLOGS` option is required when the `RECOVER` command uses the `USING BACKUP CONTROLFILE` option. `RESETLOGS` creates a new incarnation of the database by resetting the redo history back to the beginning, because there's no way to determine how much of the previous database incarnation was skipped in the recovery.
+   The `RESETLOGS` option is required when the `RECOVER` command uses the `USING BACKUP CONTROLFILE` option. `RESETLOGS` creates a new incarnation of the database by resetting the history back to the beginning, because there's no way to determine how much of the previous database incarnation was skipped in the recovery.
 
    ```bash
    SQL> alter database open resetlogs;

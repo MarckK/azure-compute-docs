@@ -6,8 +6,8 @@ ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: linux-related-content
 ms.collection: linux
-ms.topic: article
-ms.date: 04/06/2023
+ms.topic: concept-article
+ms.date: 10/28/2024
 ms.reviewer: cynthn
 ms.author: jushiman
 ---
@@ -97,7 +97,7 @@ Support for EUS RHEL7 ended in June 30, 2028. For more information, see [Red Hat
 - RHEL 7.5 EUS support ended April 30, 2020
 - RHEL 7.6 EUS support ended May 31, 2021
 - RHEL 7.7 EUS support ended August 30, 2021
-- RHEL 7.9 EUS support ended June 30, 2028
+- RHEL 7.9 EUS support ended June 30, 2024
 - RHEL 8.4 EUS support ended May 31, 2023
 - RHEL 8.6 EUS support ends May 31, 2024
 - RHEL 9.0 EUS support ends May 31, 2024

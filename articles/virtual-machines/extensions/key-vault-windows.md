@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

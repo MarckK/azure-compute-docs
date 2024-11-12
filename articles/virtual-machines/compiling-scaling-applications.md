@@ -4,7 +4,7 @@ description: Learn how to scale HPC applications on Azure VMs.
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2024
 ms.reviewer: cynthn, mattmcinnes
 ms.author: jushiman

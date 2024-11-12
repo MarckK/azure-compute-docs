@@ -19,30 +19,16 @@
     - Or an Azure Resource Manager template with an API version that's `2021-04-01` or newer.
 - Not available on some classic VMs. Use [this script](#expanding-without-downtime-classic-vm-sku-support) to get a list of classic VM SKUs that support expanding without downtime.
 
-### Preview for Ultra Disk and Premium SSD v2
+### Expand with Ultra Disk and Premium SSD v2
 
- > [!IMPORTANT]
-> Expanding without downtime for Ultra Disks and Premium SSD v2 disks is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](
-https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The preview has the following additional limitations:
+Expanding Ultra Disks and Premium SSD v2 disks have the following additional limitations:
 - You can't expand a disk while a [background copy](../scripts/create-managed-disk-from-snapshot.md#performance-impact---background-copy-process) of data is also occurring on that disk, like when a disk is being hydrated from snapshots.
 - You can't expand a VM that's using [NVMe controllers](../nvme-overview.md) for Ultra Disks or Premium SSD v2 disks without downtime.
 
 #### Regional availability
 
-Resizing Ultra Disks and Premium SSD v2 disks is currently available as a preview in the following regions:
+Resizing Ultra Disks and Premium SSD v2 disks is currently available in all Premium SSD v2 and Ultra supported regions except the following:
 
-- Australia East
-- Brazil South
-- Canada Central
-- Central India
-- Central US
-- East US 2
-- France Central
-- Japan East
-- Korea Central
-- North Europe
-- Southeast Asia
+- US West 2
+- West Europe
+- East US

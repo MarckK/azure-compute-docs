@@ -47,7 +47,7 @@ sections:
       - question: |
           Where can I see planned features or suggest one?
         answer: |
-          Please see our GitHub project for [managed clusters](https://github.com/microsoft/service-fabric/projects/17)      
+          Please see our GitHub project for [managed clusters](https://github.com/microsoft/service-fabric)      
           
   - name: Cluster Deployment and Management
     questions:

@@ -42,14 +42,14 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) | Local-Special-Disk-Count | Local-Special-Disk-Size-GB | Local-Special-Disk-RR-IOPS | Local-Special-Disk-RR-MBps |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6ads_A10_v5 | 1 | 180 |  |  |  |  |  |  |  |  |
-| Standard_NV12ads_A10_v5 | 1 | 360 |  |  |  |  |  |  |  |  |
-| Standard_NV18ads_A10_v5 | 1 | 720 |  |  |  |  |  |  |  |  |
-| Standard_NV36ads_A10_v5 | 1 | 1440 |  |  |  |  |  |  |  |  |
-| Standard_NV36adms_A10_v5 | 1 | 2880 |  |  |  |  |  |  |  |  |
-| Standard_NV72ads_A10_v5 | 1 | 2880 |  |  |  |  |  |  |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) |
+| --- | --- | --- |
+| Standard_NV6ads_A10_v5 | 1 | 180 |
+| Standard_NV12ads_A10_v5 | 1 | 360 |
+| Standard_NV18ads_A10_v5 | 1 | 720 |
+| Standard_NV36ads_A10_v5 | 1 | 1440 |
+| Standard_NV36adms_A10_v5 | 1 | 2880 |
+| Standard_NV72ads_A10_v5 | 1 | 2880 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -66,14 +66,14 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6ads_A10_v5 | 4 | 6400 | 100 |  |  |  |  |  |  |
-| Standard_NV12ads_A10_v5 | 4 | 12800 | 200 |  |  |  |  |  |  |
-| Standard_NV18ads_A10_v5 | 8 | 25600 | 384 |  |  |  |  |  |  |
-| Standard_NV36ads_A10_v5 | 16 | 51200 | 768 |  |  |  |  |  |  |
-| Standard_NV36adms_A10_v5 | 32 | 51200 | 768 |  |  |  |  |  |  |
-| Standard_NV72ads_A10_v5 | 32 | 80000 | 1200 |  |  |  |  |  |  |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_NV6ads_A10_v5 | 4 | 6400 | 100 |
+| Standard_NV12ads_A10_v5 | 4 | 12800 | 200 |
+| Standard_NV18ads_A10_v5 | 8 | 25600 | 384 |
+| Standard_NV36ads_A10_v5 | 16 | 51200 | 768 |
+| Standard_NV36adms_A10_v5 | 32 | 51200 | 768 |
+| Standard_NV72ads_A10_v5 | 32 | 80000 | 1200 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)

@@ -5,7 +5,7 @@ author: jofrance
 ms.service: azure-virtual-machines
 ms.subservice: disks
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: how-to
 ms.author: jofrance
 ms.date: 08/06/2024
 ---

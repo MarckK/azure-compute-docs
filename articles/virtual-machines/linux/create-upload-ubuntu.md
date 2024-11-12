@@ -17,9 +17,9 @@ ms.reviewer: mattmcinnes
 
 Ubuntu now publishes official Azure virtual hard disks (VHDs) for download at the [Ubuntu Cloud Images webpage](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure instead of using the manual procedure that follows, start with these known working VHDs and customize them, as needed. You can always find the latest image releases at the following locations:
 
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.tar.gz)
-* Ubuntu 20.04/Focal: [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.tar.gz)
-* Ubuntu 22.04/Jammy: [jammy-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-azure.vhd.tar.gz)
+* Ubuntu 20.04/Focal: [focal-server-cloudimg-amd64-azure.vhd.tar.gz](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.tar.gz)
+* Ubuntu 22.04/Jammy: [jammy-server-cloudimg-amd64-azure.vhd.tar.gz](https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-azure.vhd.tar.gz)
+* Ubuntu 24.04/Jammy: [jammy-server-cloudimg-amd64-azure.vhd.tar.gz](https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64-azure.vhd.tar.gz)
 
 ## Prerequisites
 
@@ -98,11 +98,11 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 1. Configure `cloud-init` to provision the system by using the Azure data source:
 
     ```bash
-    cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/90_dpkg.cfg
+    sudo tee /etc/cloud/cloud.cfg.d/90_dpkg.cfg <<EOF
     datasource_list: [ Azure ]
     EOF
     
-    cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/90-azure.cfg
+    sudo tee /etc/cloud/cloud.cfg.d/90-azure.cfg <<EOF
     system_info:
        package_mirrors:
          - arches: [i386, amd64]
@@ -119,7 +119,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
              security: http://ports.ubuntu.com/ubuntu-ports
     EOF
     
-    cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg
+    sudo tee /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg <<EOF
     reporting:
       logging:
         type: log
@@ -138,7 +138,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     ```
     
     ```bash
-    cat <<EOF | sudo tee -a /etc/waagent.conf
+    sudo tee -a /etc/waagent.conf <<EOF
     # For Azure Linux agent version >= 2.2.45, this is the option to configure,
     # enable, or disable the provisioning behavior of the Linux agent.
     # Accepted values are auto (default), waagent, cloud-init, or disabled.

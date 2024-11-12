@@ -4,7 +4,7 @@ description: Learn about troubleshooting known issues with HPC and GPU virtual m
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: padmalathas

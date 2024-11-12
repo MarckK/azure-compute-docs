@@ -4,7 +4,7 @@ description: Learn how to generate and store SSH keys in the Azure portal for co
 author: mattmcinnes
 ms.service: azure-virtual-machines
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: mattmcinnes
 ---
@@ -25,9 +25,6 @@ You can reuse your stored keys in various of applications to fit your organizati
 
 For more detailed information about creating and using SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
-> [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
-
 ## Generate new keys
 
 1. Open the [Azure portal](https://portal.azure.com).
@@ -46,7 +43,7 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 1. In **SSH public key source**, select **Generate public key source**. 
 
-1. In **SSH Key Type**, select either **RSA SSH Format** or **Ed25519 SSH Format** [Preview]
+1. In **SSH Key Type**, select either **RSA SSH Format** or **Ed25519 SSH Format**
 
 1. When you're done, select **Review + create**.
 

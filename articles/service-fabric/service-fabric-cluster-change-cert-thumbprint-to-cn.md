@@ -236,5 +236,3 @@ For instructions on how to carry out any of these upgrades, see [Manage certific
 * Learn about [cluster security](service-fabric-cluster-security.md).
 * Learn how to [roll over a cluster certificate by common name](service-fabric-cluster-rollover-cert-cn.md).
 * Learn how to [configure a cluster for touchless autorollover](cluster-security-certificate-management.md).
-
-[image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

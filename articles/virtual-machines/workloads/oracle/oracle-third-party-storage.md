@@ -5,19 +5,19 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: oracle-on-azure
 ms.collection: oracle
-ms.topic: article
-ms.date: 03/26/2024
+ms.topic: concept-article
+ms.date: 10/07/2024
 ---
 
-# Partner storage offerings for Oracle on Azure VMs
+# Partner storage offerings for Oracle on Azure VMs
 
-This article describes Partner storage offerings for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. These trusted third-party storage solutions are ideal for high performance use cases. 
+This article describes Partner storage offerings for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the Microsoft storage offering for Oracle on Azure VMs. These trusted non-Microsoft storage solutions are ideal for high performance use cases. 
 
 ## Oracle as a DBaaS on Azure 
 
 Administering Oracle as a DBaaS on Azure requires Azure cloud skills outside the traditional database administration functions. Managing infrastructure as a service can interfere with defined database operations. In such scenarios, a better option is to use the Oracle Database as a service on Azure (DBaaS). The DBaaS provides access to a database without requirements to deploy and manage the underlying infrastructure. 
 
-DBaaS is delivered as a managed database service, which means that the provider takes care of patching, upgrading, and backing up the database.  [Tessell](https://www.tessell.com/) primarily provides Oracle database as service – PaaS, also called as 'DBaaS – Database as service on Azure. Tessell's DBaaS platform is available for [coselling with Microsoft](https://www.tessell.com/blogs/azure-tessell-ip-co-sell), delivering the full power of Tessell on Azure. Joint Tessell-Microsoft customers can apply Tessell's advanced cloud-based database-as-a-service (DBaaS) platform with the expertise and support of Microsoft's sales and technical teams. Tessell’s DBaaS is Azure-native service with the following benefits: 
+DBaaS is delivered as a managed database service, which means that the provider takes care of patching, upgrading, and backing up the database.  [Tessell](https://www.tessell.com/) primarily provides Oracle database as service – PaaS, also called as 'DBaaS – Database as service on Azure. Tessell's DBaaS platform is available for [coselling with Microsoft](https://www.tessell.com/blogs/azure-tessell-ip-co-sell), delivering the full power of Tessell on Azure. Joint Tessell-Microsoft customers can apply Tessell's advanced cloud-based database-as-a-service (DBaaS) platform with the expertise and support of Microsoft's sales and technical teams. Tessell’s DBaaS is an Azure-native service with the following benefits: 
 
 - Oracle self-service, DevOps integration, and production operations without having to deploy and manage the underlying infrastructure.  
 - Running on Azure high-performance-compute (HPC, LSV3 series), the most demanding production Oracle workloads can be brought to Azure.  
@@ -30,7 +30,7 @@ The [Lightbits](https://www.lightbitslabs.com/azure/) Cloud Data Platform prov
 For other options, see L32sv3/L32asv3: 7.68 TB, L48sv3/L48asv3: 11.52 TB, L64sv3/L64asv3: 15.36 TB, L80sv3/L80asv3: 19.20 TB.
 In real-world workload test scenarios, Lightbits delivers more than 10X more IOPS than the best available Azure native storage (Ultra disk).
 
-The Lightbits Cloud Data Platform also provides synchronous replication across multiple availability zones, so you can have a dormant Oracle instance without starting it on a different zone, and if the zone fails, activate the database using the same Lightbits volumes that you used in the different zone without waiting for any log transfer.
+The Lightbits Cloud Data Platform also provides synchronous replication across multiple availability zones, so you can have a dormant Oracle instance without starting it on a different zone. Should the zone fail, you can activate the database using the same Lightbits volumes that you used in the different zone without waiting for any log transfer.
 
 The Lightbits Cloud Data Platform supports Oracle ASM and also supports shared raw block devices to use with Oracle RAC.
 
