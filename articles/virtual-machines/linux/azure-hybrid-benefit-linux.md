@@ -181,7 +181,7 @@ To enable Azure Hybrid Benefit when you create a VM:
 You can use the `az vm extension` and `az vm update` commands to update a new VM after you create them.
 
 1. Install the extension:
-> [!NOTE]>
+> [!NOTE]
 > You do **not** need to install the extension for SUSE offerings
 
    ```azurecli
@@ -369,28 +369,28 @@ Use the Azure CLI to convert a PAYG Azure Marketplace image to a BYOS subscripti
 
 1. Apply the `RHEL_BYOS` license type to the VM:
 
-    ```azurecli
+   ```azurecli
     # This enables BYOS on a RHEL PAYG VM by using Azure Hybrid Benefit.
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
-    ```
+   ```
 
 1. When the PAYG to BYOS conversion is finished, you must register the VM with Red Hat for system updates and usage compliance.
 
 1. If you want to return the original subscription model, set `license-type` to `None`.
 
-    ```azurecli
-    # In order to revert back to the original licensing model, set license-type to None.
-    az vm update -g myResourceGroup -n myVmName --license-type NONE
-    ```
+   ```azurecli
+   # In order to revert back to the original licensing model, set license-type to None.
+   az vm update -g myResourceGroup -n myVmName --license-type NONE
+   ```
 
 #### [SUSE (SLES)](#tab/slesAzcliByosConv)
 
 1. Apply the `SLES_BYOS` license type to the VM:
 
-    ```azurecli
+   ```azurecli
     # This enables BYOS on a SLES virtual machine.
     az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
-    ```
+   ```
 
 1. When the conversion from PAYG to BYOS is finished, you must register the VM directly with SUSE for software updates and usage compliance.
 
@@ -398,10 +398,10 @@ Use the Azure CLI to convert a PAYG Azure Marketplace image to a BYOS subscripti
 > [!NOTE]
 > This is not possible for the SUSE offerings "+ Patching", they can only be moved back to "SLES"
 
-    ```azurecli
+   ```azurecli
     # In order to revert back to the original licensing model, set license-type to None.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
-    ```
+   ```
 ---
 
 ## Convert BYOS to PAYG
@@ -412,13 +412,13 @@ Converting to a PAYG subscription model is supported for Azure Marketplace image
 
 1. Install the Azure Hybrid Benefit extension on a running VM. You can use the following command via the Azure CLI:
 
-    ```azurecli
+   ```azurecli
     az vm extension set -n AHBForRHEL --publisher Microsoft.Azure.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
-    ```
+   ```
 
 1. After the extension is installed successfully, change the license type based on what you need:
 
-    ```azurecli
+   ```azurecli
     # This enables Azure Hybrid Benefit to fetch software updates for RHEL base/regular repositories.
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASE
 
@@ -440,15 +440,15 @@ Converting to a PAYG subscription model is supported for Azure Marketplace image
 
 1. Check to see if the "AHB for RHEL" feature flag is enabled:
 
-    ```azurecli
+   ```azurecli
     az feature list --namespace Microsoft.Compute | grep "AHBEnabledForRHEL" -A 3
-    ```
+   ```
 
 1. If you want to return the original subscription model, set `license-type` to `None`.
-    ```azurecli
+   ```azurecli
     # In order to revert back to the original licensing model, set license-type to None.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
-    ```
+   ```
 
 #### [SUSE (SLES)](#tab/slesazclipaygconv)
 
@@ -470,10 +470,10 @@ Converting to a PAYG subscription model is supported for Azure Marketplace image
    ```
 
 1. If you want to return the original subscription model, set `license-type` to `None`.
-    ```azurecli
+   ```azurecli
     # In order to revert back to the original licensing model, set license-type to None.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
-    ```
+   ```
 
 #### Multiple VMs
 
